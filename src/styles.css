@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+
+@plugin "tailwindcss-animate";
+
+:root {
+    --secondary-green: #277c78;
+}
+
+@theme {
+    --color-beige-100: #F8F4F0;
+    --color-beige-500: #98908B;
+    --color-secondary-green: var(--secondary-green);
+
+    --text-preset-1:
+}
+
+@layer utilities {
+    .text-preset-1 {
+        @apply text-4xl leading-[1.2] tracking-normal;
+    }
+
+    .text-preset-2 {
+        @apply text-xl leading-[1.2] tracking-normal;
+    }
+
+    .text-preset-3 {
+        @apply text-base leading-normal tracking-normal;
+    }
+
+    .text-preset-4 {
+        @apply text-sm leading-normal tracking-normal;
+    }
+
+    .text-preset-5 {
+        @apply text-xs leading-normal tracking-normal;
+    }
+
+    .text-preset-6 {
+        @apply text-4xl leading-normal tracking-normal;
+    }
+
+}
