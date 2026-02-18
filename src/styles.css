@@ -3,15 +3,37 @@
 @plugin "tailwindcss-animate";
 
 :root {
+    --primary-gray: ##201F24;
+    --medium-gray: ##696868;
+    --light-gray: ##B3B3B3;
+
     --secondary-green: #277c78;
+    --secondary-yellow: #F2CDAC;
+    --secondary-cyan: #82C9d7;
+    --secondary-navy: #626070;
+    --secondary-red: #C94736;
+    --secondary-purple: #826CB0;
+
+
 }
 
 @theme {
+    --color-primary-gray: var(--primary-gray);
+    --color-medium-gray: var(--medium-gray);
+    --color-light-gray: var(--light-gra);
+
     --color-beige-100: #F8F4F0;
     --color-beige-500: #98908B;
     --color-secondary-green: var(--secondary-green);
+    --color-secondary-yellow: var(--secondary-yellow);
+    --color-secondary-cyan: var(--secondary-cyan);
+    --color-secondary-navy: var(--secondary-navy);
+    --color-secondary-red: var(--secondary-red);
+    --color-secondary-purple: var(--secondary-purple);
 
-    --text-preset-1:
+
+
+
 }
 
 @layer utilities {
