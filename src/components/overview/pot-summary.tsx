@@ -15,7 +15,7 @@ export default function PortSummary() {
             <div className="mt-8 bg-white p-8 rounded-xl">
             <SummaryHeader title="Pots" href="/pots" label="See Details"/>
 
-                <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5">
+                <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
                     <div className="flex items-center gap-4 bg-beige-100 p-5 rounded-xl">
                         <PotsIcon className="w-10 h-10 stroke-green-500 fill-white" />
                         <div className="flex flex-col gap-2.5">
@@ -24,8 +24,6 @@ export default function PortSummary() {
                         </div>
                     </div>
 
-
-                    
                     <div className="grid grid-cols-2 gap-4">
                         { potsData.map(pot => (
                             <SavingMicro key={pot.title} title={pot.title} className={pot.color} amount={pot.amount}/>

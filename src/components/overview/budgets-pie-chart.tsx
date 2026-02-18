@@ -49,7 +49,7 @@ export function ChartPieDonutText() {
                             data={chartData}
                             dataKey="amount"
                             nameKey="budget"
-                            innerRadius={60}
+                            innerRadius={70}
                             stroke="none"
                         >
 
