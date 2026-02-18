@@ -1,4 +1,3 @@
-import ArrowRight from "../icons/ArrowRight";
 import PotsIcon from "../icons/PotsIcon";
 import SavingMicro from "./saving-micro";
 import SummaryHeader from "./summary-header";

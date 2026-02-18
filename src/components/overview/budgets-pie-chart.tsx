@@ -37,7 +37,7 @@ export function ChartPieDonutText() {
             <CardContent className="flex-1 pb-0">
                 <ChartContainer
                     config={chartConfig}
-                    className="aspect-square"
+                    className="mx-auto self-center aspect-square"
                 >
                     <PieChart>
                         <ChartTooltip
