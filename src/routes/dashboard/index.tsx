@@ -1,5 +1,6 @@
 import BudgetSummary from '@/components/overview/budget-summary';
 import PortSummary from '@/components/overview/pot-summary';
+import RecurringBillSummary from '@/components/overview/recurring-bills-summary';
 import SummaryCard from '@/components/overview/summary-card';
 import TransactionSummary from '@/components/overview/transaction-summary';
 import { createFileRoute } from '@tanstack/react-router';
@@ -27,6 +28,8 @@ function OverviewPage() {
 
                 <div className="flex flex-col gap-6 xl:mt-8">
                     <BudgetSummary />
+                    <RecurringBillSummary/>
+                    
                 </div>
             </div>
         </main>
