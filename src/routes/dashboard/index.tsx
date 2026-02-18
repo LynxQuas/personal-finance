@@ -1,3 +1,7 @@
+import ArrowRight from '@/components/icons/ArrowRight';
+import PotsIcon from '@/components/icons/PotsIcon';
+import PortSummary from '@/components/overview/pot-summary';
+import SavingMicro from '@/components/overview/saving-micro';
 import SummaryCard from '@/components/overview/summary-card';
 import { createFileRoute } from '@tanstack/react-router';
 
@@ -15,6 +19,9 @@ function OverviewPage() {
                 <SummaryCard title="Income" amount={3814} />
                 <SummaryCard title="Expenses" amount={1700} />
             </div>
+
+            <PortSummary/>
+
         </main>
     )
 }

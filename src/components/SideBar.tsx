@@ -33,7 +33,7 @@ export default function Sidebar() {
                             {({ isActive }) => {
                                 return (
                                     <div className="flex items-center gap-x-4 text-sm font-semibold">
-                                        <nav.icon className={isActive ? "fill-secondary-green" : "gray"} />
+                                        <nav.icon className={isActive ? "fill-secondary-green" : "fill-gray-500"} />
                                         {nav.label}
                                     </div>
                                 )
