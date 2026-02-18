@@ -1,4 +1,5 @@
 import ArrowRight from "../icons/ArrowRight";
+import SummaryHeader from "./summary-header";
 
 const transactionData = [
     { name: "Emma Richardson", amount: 75.50, date: "19 Aug 2024" },
@@ -10,15 +11,8 @@ const transactionData = [
 
 export default function TransactionSummary() {
     return (
-        <div className="bg-white rounded-xl pt-8 px-8 mt-8">
-            <div className="flex justify-between pb-8">
-                <h2 className="text-preset-2 font-bold">Transactions</h2>
-                <div className="flex items-center gap-4">
-                    <span className="text-preset-4 text-medium-gray">View All</span>
-                    <ArrowRight />
-                </div>
-            </div>
-
+        <div className="bg-white rounded-xl pt-8 px-8">
+        <SummaryHeader title="Transactions" label="See Details" href="/dashboard/transactions"/>
             <div className="flex flex-col">
                 {transactionData.map(t => (
                     <div key={t.name} className="flex justify-between py-5 border-b border-gray-100">
