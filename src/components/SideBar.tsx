@@ -15,7 +15,7 @@ const navItems = [
 
 export default function Sidebar() {
     return (
-        <aside className="bg-gray-950 h-screen">
+        <aside className="bg-gray-950 h-screen fixed w-75 rounded-r-xl">
             <div className="text-white text-3xl font-bold py-10 px-7 mb-6">Logo</div>
 
             <ul>

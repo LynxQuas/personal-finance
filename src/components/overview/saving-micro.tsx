@@ -5,6 +5,7 @@ type SavingMicroProps = {
     title: string;
     amount: number;
 }
+
 export default function SavingMicro({ className, title, amount }: SavingMicroProps) {
     return (
         <div className={

@@ -1,8 +1,6 @@
-import ArrowRight from '@/components/icons/ArrowRight';
-import PotsIcon from '@/components/icons/PotsIcon';
 import PortSummary from '@/components/overview/pot-summary';
-import SavingMicro from '@/components/overview/saving-micro';
 import SummaryCard from '@/components/overview/summary-card';
+import TransactionSummary from '@/components/overview/transaction-summary';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/dashboard/')({
@@ -11,7 +9,7 @@ export const Route = createFileRoute('/dashboard/')({
 
 function OverviewPage() {
     return (
-        <main className="bg-beige-100 h-screen p-10">
+        <main className="bg-beige-100 min-h-screen md:p-10 px-4 py-6">
             <h2 className="text-preset-1 font-bold mb-10.5">Overview</h2>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -20,8 +18,8 @@ function OverviewPage() {
                 <SummaryCard title="Expenses" amount={1700} />
             </div>
 
-            <PortSummary/>
-
+            <PortSummary />
+            <TransactionSummary />
         </main>
     )
 }

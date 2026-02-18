@@ -36,7 +36,7 @@ export default function PortSummary() {
                     
                     <div className="grid grid-cols-2 gap-4">
                         { potsData.map(pot => (
-                            <SavingMicro title={pot.title} className={pot.color} amount={pot.amount}/>
+                            <SavingMicro key={pot.title} title={pot.title} className={pot.color} amount={pot.amount}/>
                         ))}
                     </div>
                 </div>
