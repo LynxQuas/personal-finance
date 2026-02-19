@@ -11,7 +11,7 @@ export const Route = createFileRoute('/dashboard/')({
 
 function OverviewPage() {
     return (
-        <main className="bg-beige-100 min-h-screen md:px-10 md:pb-4 px-4 pt-6">
+        <div className="bg-beige-100 min-h-screen md:px-10 md:pb-4 px-4 pt-6">
             <h2 className="text-preset-1 font-bold mb-10.5">Overview</h2>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -29,10 +29,9 @@ function OverviewPage() {
                 <div className="flex flex-col gap-6 xl:mt-8">
                     <BudgetSummary />
                     <RecurringBillSummary/>
-                    
                 </div>
             </div>
-        </main>
+        </div>
     )
 }
 

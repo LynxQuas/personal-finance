@@ -13,9 +13,9 @@ function DashboardLayout() {
           <Sidebar />
         </div>
 
-        <div className="flex-1 text-black">
+        <main className="flex-1 text-black">
           <Outlet />
-        </div>
+        </main>
       </div>
     </main>
   )
