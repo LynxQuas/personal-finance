@@ -4,9 +4,10 @@ type SavingMicroProps = {
     className?: string;
     title: string;
     amount: number;
+    limit?: string;
 }
 
-export default function SavingMicro({ className, title, amount }: SavingMicroProps) {
+export default function SavingMicro({ className, title, amount, limit }: SavingMicroProps) {
     return (
         <div className={
             cn(
@@ -15,7 +16,11 @@ export default function SavingMicro({ className, title, amount }: SavingMicroPro
             )
         }>
             <span className="text-preset-5 text-medium-gray">{title}</span>
-            <span className="text-preset-4 font-bold text-primary-gray">${amount}</span>
+            <div className="flex items-center gap-2">
+                <span className="text-preset-4 font-bold text-primary-gray">${amount}</span>
+                {limit && <span className="text-preset-5">{limit}</span>}
+            </div>
+
         </div>
     )
 }

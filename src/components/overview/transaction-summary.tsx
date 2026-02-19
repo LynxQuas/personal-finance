@@ -1,4 +1,4 @@
-import ArrowRight from "../icons/ArrowRight";
+import { cn } from "@/lib/utils";
 import SummaryHeader from "./summary-header";
 
 const transactionData = [
@@ -9,10 +9,15 @@ const transactionData = [
     { name: "Urban Services Hub", amount: 65.50, date: "17 Aug 2024" },
 ]
 
-export default function TransactionSummary() {
+type TransactionSummaryProps = {
+    isSummary?: boolean;
+    className?: string;
+}
+
+export default function TransactionSummary({ isSummary, className }: TransactionSummaryProps) {
     return (
-        <div className="bg-white rounded-xl pt-8 px-8">
-        <SummaryHeader title="Transactions" label="See Details" href="/dashboard/transactions"/>
+        <div className={cn("bg-white rounded-xl pt-8 px-8", className)}>
+            {isSummary && <SummaryHeader title="Transactions" label="See Details" href="/dashboard/transactions" />}
             <div className="flex flex-col">
                 {transactionData.map(t => (
                     <div key={t.name} className="flex justify-between py-5 border-b border-gray-100">
