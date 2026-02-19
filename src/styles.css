@@ -3,62 +3,55 @@
 @plugin "tailwindcss-animate";
 
 :root {
-    --primary-gray: ##201F24;
-    --medium-gray: ##696868;
-    --light-gray: ##B3B3B3;
+  --primary-gray: ##201f24;
+  --medium-gray: ##696868;
+  --light-gray: ##b3b3b3;
 
-    --secondary-green: #277c78;
-    --secondary-yellow: #F2CDAC;
-    --secondary-cyan: #82C9d7;
-    --secondary-navy: #626070;
-    --secondary-red: #C94736;
-    --secondary-purple: #826CB0;
-
-
+  --secondary-green: #277c78;
+  --secondary-yellow: #f2cdac;
+  --secondary-cyan: #82c9d7;
+  --secondary-navy: #626070;
+  --secondary-red: #c94736;
+  --secondary-purple: #826cb0;
 }
 
 @theme {
-    --color-primary-gray: var(--primary-gray);
-    --color-medium-gray: var(--medium-gray);
-    --color-light-gray: var(--light-gra);
+  --color-primary-gray: var(--primary-gray);
+  --color-medium-gray: var(--medium-gray);
+  --color-light-gray: var(--light-gra);
 
-    --color-beige-100: #F8F4F0;
-    --color-beige-500: #98908B;
-    --color-secondary-green: var(--secondary-green);
-    --color-secondary-yellow: var(--secondary-yellow);
-    --color-secondary-cyan: var(--secondary-cyan);
-    --color-secondary-navy: var(--secondary-navy);
-    --color-secondary-red: var(--secondary-red);
-    --color-secondary-purple: var(--secondary-purple);
-
-
-
-
+  --color-beige-100: #f8f4f0;
+  --color-beige-500: #98908b;
+  --color-secondary-green: var(--secondary-green);
+  --color-secondary-yellow: var(--secondary-yellow);
+  --color-secondary-cyan: var(--secondary-cyan);
+  --color-secondary-navy: var(--secondary-navy);
+  --color-secondary-red: var(--secondary-red);
+  --color-secondary-purple: var(--secondary-purple);
 }
 
 @layer utilities {
-    .text-preset-1 {
-        @apply text-4xl leading-[1.2] tracking-normal;
-    }
+  .text-preset-1 {
+    @apply text-4xl leading-[1.2] tracking-normal;
+  }
 
-    .text-preset-2 {
-        @apply text-xl leading-[1.2] tracking-normal;
-    }
+  .text-preset-2 {
+    @apply text-xl leading-[1.2] tracking-normal;
+  }
 
-    .text-preset-3 {
-        @apply text-base leading-normal tracking-normal;
-    }
+  .text-preset-3 {
+    @apply text-base leading-normal tracking-normal;
+  }
 
-    .text-preset-4 {
-        @apply text-sm leading-normal tracking-normal;
-    }
+  .text-preset-4 {
+    @apply text-sm leading-normal tracking-normal;
+  }
 
-    .text-preset-5 {
-        @apply text-xs leading-normal tracking-normal;
-    }
+  .text-preset-5 {
+    @apply text-xs leading-normal tracking-normal;
+  }
 
-    .text-preset-6 {
-        @apply text-4xl leading-normal tracking-normal;
-    }
-
+  .text-preset-6 {
+    @apply text-4xl leading-normal tracking-normal;
+  }
 }

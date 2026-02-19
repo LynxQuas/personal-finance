@@ -1,4 +1,4 @@
-Welcome to your new TanStack Start app! 
+Welcome to your new TanStack Start app!
 
 # Getting Started
 
@@ -40,7 +40,6 @@ If you prefer not to use Tailwind CSS:
 
 ## Linting & Formatting
 
-
 This project uses [eslint](https://eslint.org/) and [prettier](https://prettier.io/) for linting and formatting. Eslint is configured using [tanstack/eslint-config](https://tanstack.com/config/latest/docs/eslint). The following scripts are available:
 
 ```bash
@@ -49,7 +48,6 @@ npm run format
 npm run check
 ```
 
-
 ## Shadcn
 
 Add components using the latest version of [Shadcn](https://ui.shadcn.com/).
@@ -57,7 +55,6 @@ Add components using the latest version of [Shadcn](https://ui.shadcn.com/).
 ```bash
 pnpm dlx shadcn@latest add button
 ```
-
 
 # Events Example - Haute Pâtisserie 2026
 
@@ -71,17 +68,20 @@ A beautiful pastry conference website built with TanStack Start and Netlify, fea
 ## Features
 
 ### Content Management
+
 - Speaker profiles with bios, awards, and specialty information
 - Session details with topics, duration, and speaker attribution
 - All content in markdown files using content-collections
 
 ### AI-Powered Assistance
+
 - Chat with "Remy" the culinary assistant
 - Search for speakers and sessions by topic
 - Get recommendations based on interests
 - Supports multiple AI providers (Anthropic, OpenAI, Gemini, Ollama)
 
 ### Routes
+
 - `/` - Home page with featured speakers and sessions
 - `/schedule` - Conference schedule with day-by-day timeline
 - `/speakers` - All speakers grid
@@ -128,36 +128,38 @@ The assistant will automatically use the first available provider.
 ## Customization
 
 ### Adding Speakers
+
 Create a new markdown file in `content/speakers/`:
 
 ```markdown
 ---
-name: "Chef Name"
-title: "Executive Pastry Chef"
-specialty: "French Pastry"
-restaurant: "Restaurant Name"
-location: "City, Country"
-headshot: "speakers/chef-name.jpg"
+name: 'Chef Name'
+title: 'Executive Pastry Chef'
+specialty: 'French Pastry'
+restaurant: 'Restaurant Name'
+location: 'City, Country'
+headshot: 'speakers/chef-name.jpg'
 awards:
-  - "Award 1"
-  - "Award 2"
+  - 'Award 1'
+  - 'Award 2'
 ---
 
 Bio content here...
 ```
 
 ### Adding Sessions
+
 Create a new markdown file in `content/talks/`:
 
 ```markdown
 ---
-title: "Session Title"
-speaker: "Chef Name"
-duration: "90 minutes"
-image: "talks/session-image.jpg"
+title: 'Session Title'
+speaker: 'Chef Name'
+duration: '90 minutes'
+image: 'talks/session-image.jpg'
 topics:
-  - "Topic 1"
-  - "Topic 2"
+  - 'Topic 1'
+  - 'Topic 2'
 ---
 
 Session description here...
@@ -166,11 +168,10 @@ Session description here...
 ## Theme
 
 The example uses a custom dark theme with:
+
 - **Font**: Playfair Display (display) and Cormorant Garamond (body)
 - **Colors**: Copper and gold accents on a dark charcoal background
 - **Effects**: Elegant card hover animations, grain texture overlay
-
-
 
 ## Routing
 
@@ -189,7 +190,7 @@ Now that you have two routes you can use a `Link` component to navigate between 
 To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
 
 ```tsx
-import { Link } from "@tanstack/react-router";
+import { Link } from '@tanstack/react-router'
 ```
 
 Then anywhere in your JSX you can use it like so:
@@ -257,11 +258,11 @@ const getServerTime = createServerFn({
 // Use in a component
 function MyComponent() {
   const [time, setTime] = useState('')
-  
+
   useEffect(() => {
     getServerTime().then(setTime)
   }, [])
-  
+
   return <div>Server time: {time}</div>
 }
 ```
