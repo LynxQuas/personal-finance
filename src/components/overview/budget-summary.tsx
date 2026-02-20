@@ -1,6 +1,6 @@
-import { ChartPieDonutText } from './budgets-pie-chart'
-import SavingMicro from './saving-micro'
-import SummaryHeader from './summary-header'
+import { ChartPieDonutText } from "./budgets-pie-chart"
+import SavingMicro from "./saving-micro"
+import SummaryHeader from "./summary-header"
 
 export default function BudgetSummary() {
   return (

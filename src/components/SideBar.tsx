@@ -1,22 +1,22 @@
-import { Link } from '@tanstack/react-router'
-import OverviewIcon from './icons/OverviewIcon'
-import TransactionIcon from './icons/TransactionsIcon'
-import BudgetsIcon from './icons/BudgetsIcon'
-import PotsIcon from './icons/PotsIcon'
-import RecurringBills from './icons/RecurringBillsIcon'
+import { Link } from "@tanstack/react-router"
+import OverviewIcon from "./icons/OverviewIcon"
+import TransactionIcon from "./icons/TransactionsIcon"
+import BudgetsIcon from "./icons/BudgetsIcon"
+import PotsIcon from "./icons/PotsIcon"
+import RecurringBills from "./icons/RecurringBillsIcon"
 
 const navItems = [
-  { label: 'Overview', href: '/dashboard/', icon: OverviewIcon },
+  { label: "Overview", href: "/dashboard/", icon: OverviewIcon },
   {
-    label: 'Transactions',
-    href: '/dashboard/transactions',
+    label: "Transactions",
+    href: "/dashboard/transactions",
     icon: TransactionIcon,
   },
-  { label: 'Budgets', href: '/dashboard/budgets', icon: BudgetsIcon },
-  { label: 'Pots', href: '/dashboard/pots', icon: PotsIcon },
+  { label: "Budgets", href: "/dashboard/budgets", icon: BudgetsIcon },
+  { label: "Pots", href: "/dashboard/pots", icon: PotsIcon },
   {
-    label: 'Recurring Bills',
-    href: '/dashboard/recurring-bills',
+    label: "Recurring Bills",
+    href: "/dashboard/recurring-bills",
     icon: RecurringBills,
   },
 ]
@@ -35,7 +35,7 @@ export default function Sidebar() {
               activeOptions={{ exact: true }}
               activeProps={{
                 className:
-                  'rounded-md ml-0 text-black! block py-4 px-[22px] border-l-secondary-green border-l-6 bg-beige-100 ',
+                  "rounded-md ml-0 text-black! block py-4 px-[22px] border-l-secondary-green border-l-6 bg-beige-100 ",
               }}
             >
               {({ isActive }) => {
@@ -43,7 +43,7 @@ export default function Sidebar() {
                   <div className="flex items-center gap-x-4 text-sm font-semibold">
                     <nav.icon
                       className={
-                        isActive ? 'fill-secondary-green' : 'fill-gray-500'
+                        isActive ? "fill-secondary-green" : "fill-gray-500"
                       }
                     />
                     {nav.label}

@@ -1,27 +1,26 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import { Label, Pie, PieChart } from 'recharts'
+import * as React from "react"
+import { Label, Pie, PieChart } from "recharts"
 
-import type {ChartConfig} from '@/components/ui/chart';
-import { Card, CardContent } from '@/components/ui/card'
+import type { ChartConfig } from "@/components/ui/chart"
+import { Card, CardContent } from "@/components/ui/card"
 import {
-  
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent
-} from '@/components/ui/chart'
+  ChartTooltipContent,
+} from "@/components/ui/chart"
 
 const chartData = [
-  { budget: 'Entertainment', amount: 275, fill: 'var(--secondary-green)' },
-  { budget: 'Bills', amount: 200, fill: 'var(--secondary-cyan)' },
-  { budget: 'Dining Out', amount: 287, fill: 'var(--secondary-yellow)' },
-  { budget: 'Personal Care', amount: 173, fill: 'var(--secondary-navy)' },
+  { budget: "Entertainment", amount: 275, fill: "var(--secondary-green)" },
+  { budget: "Bills", amount: 200, fill: "var(--secondary-cyan)" },
+  { budget: "Dining Out", amount: 287, fill: "var(--secondary-yellow)" },
+  { budget: "Personal Care", amount: 173, fill: "var(--secondary-navy)" },
 ]
 
 const chartConfig = {
   amount: {
-    label: 'Amount',
+    label: "Amount",
   },
 } satisfies ChartConfig
 
@@ -52,7 +51,7 @@ export function ChartPieDonutText() {
             >
               <Label
                 content={({ viewBox }) => {
-                  if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
+                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text
                         x={viewBox.cx}

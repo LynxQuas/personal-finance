@@ -1,5 +1,5 @@
-import { Link } from '@tanstack/react-router'
-import ArrowRight from '../icons/ArrowRight'
+import { Link } from "@tanstack/react-router"
+import ArrowRight from "../icons/ArrowRight"
 
 type SummaryHeaderProps = {
   title: string

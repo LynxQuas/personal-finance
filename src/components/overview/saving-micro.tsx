@@ -1,10 +1,11 @@
-import { cn } from '@/lib/utils'
+import { cn } from "@/lib/utils"
 
 type SavingMicroProps = {
   className?: string
   title: string
   amount: number
-  limit?: string
+  limit?: number
+  style?: {}
 }
 
 export default function SavingMicro({
@@ -12,20 +13,19 @@ export default function SavingMicro({
   title,
   amount,
   limit,
+  style,
 }: SavingMicroProps) {
   return (
     <div
-      className={cn(
-        'flex gap-1 flex-col border-l-4 px-5 py-1 border-secondary-green',
-        className,
-      )}
+      style={style ? style : {}}
+      className={cn("flex gap-1 flex-col border-l-4 px-5 py-1", className)}
     >
       <span className="text-preset-5 text-medium-gray">{title}</span>
       <div className="flex items-center gap-2">
         <span className="text-preset-4 font-bold text-primary-gray">
           ${amount}
         </span>
-        {limit && <span className="text-preset-5">{limit}</span>}
+        {limit && <span className="text-preset-5">of ${limit}</span>}
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
-import { useForm } from 'react-hook-form'
-import { Link } from '@tanstack/react-router'
-import BasicField from './BasicField'
-import type { SubmitHandler } from 'react-hook-form'
+import { useForm } from "react-hook-form"
+import { Link } from "@tanstack/react-router"
+import BasicField from "./BasicField"
+import type { SubmitHandler } from "react-hook-form"
 
 type Inputs = {
   email: string

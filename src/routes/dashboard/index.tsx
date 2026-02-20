@@ -1,11 +1,11 @@
-import { createFileRoute } from '@tanstack/react-router'
-import BudgetSummary from '@/components/overview/budget-summary'
-import PortSummary from '@/components/overview/pot-summary'
-import RecurringBillSummary from '@/components/overview/recurring-bills-summary'
-import SummaryCard from '@/components/overview/summary-card'
-import TransactionSummary from '@/components/overview/transaction-summary'
+import { createFileRoute } from "@tanstack/react-router"
+import BudgetSummary from "@/components/overview/budget-summary"
+import PortSummary from "@/components/overview/pot-summary"
+import RecurringBillSummary from "@/components/overview/recurring-bills-summary"
+import SummaryCard from "@/components/overview/summary-card"
+import TransactionSummary from "@/components/overview/transaction-summary"
 
-export const Route = createFileRoute('/dashboard/')({
+export const Route = createFileRoute("/dashboard/")({
   component: OverviewPage,
 })
 

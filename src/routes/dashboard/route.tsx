@@ -1,7 +1,7 @@
-import { Outlet, createFileRoute } from '@tanstack/react-router'
-import Sidebar from '@/components/SideBar'
+import { Outlet, createFileRoute } from "@tanstack/react-router"
+import Sidebar from "@/components/SideBar"
 
-export const Route = createFileRoute('/dashboard')({
+export const Route = createFileRoute("/dashboard")({
   component: DashboardLayout,
 })
 

@@ -1,5 +1,5 @@
-import DropDown from './icons/DropDownIcon'
-import { cn } from '@/lib/utils'
+import DropDown from "./icons/DropDownIcon"
+import { cn } from "@/lib/utils"
 
 type options = { name: string; value: string }
 
@@ -19,7 +19,7 @@ export default function SelectField({
   return (
     <div className="w-full flex items-center gap-2">
       <label htmlFor={name}>{label}</label>
-      <div className={cn('relative', className)}>
+      <div className={cn("relative", className)}>
         <select
           id={name}
           name={name}

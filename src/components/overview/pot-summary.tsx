@@ -1,12 +1,12 @@
-import PotsIcon from '../icons/PotsIcon'
-import SavingMicro from './saving-micro'
-import SummaryHeader from './summary-header'
+import PotsIcon from "../icons/PotsIcon"
+import SavingMicro from "./saving-micro"
+import SummaryHeader from "./summary-header"
 
 const potsData = [
-  { title: 'Saving', amount: 159, color: 'border-secondary-green' },
-  { title: 'Gift', amount: 40, color: 'border-secondary-cyan' },
-  { title: 'Concert Ticket', amount: 110, color: 'border-secondary-navy' },
-  { title: 'New Laptop', amount: 10, color: 'border-secondary-yellow' },
+  { title: "Saving", amount: 159, color: "border-secondary-green" },
+  { title: "Gift", amount: 40, color: "border-secondary-cyan" },
+  { title: "Concert Ticket", amount: 110, color: "border-secondary-navy" },
+  { title: "New Laptop", amount: 10, color: "border-secondary-yellow" },
 ]
 
 export default function PortSummary() {

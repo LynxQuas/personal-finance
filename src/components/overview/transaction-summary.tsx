@@ -1,12 +1,12 @@
-import SummaryHeader from './summary-header'
-import { cn } from '@/lib/utils'
+import SummaryHeader from "./summary-header"
+import { cn } from "@/lib/utils"
 
 const transactionData = [
-  { name: 'Emma Richardson', amount: 75.5, date: '19 Aug 2024' },
-  { name: 'Savory Bites Bistro', amount: 55.5, date: '19 Aug 2024' },
-  { name: 'Daniel Carter', amount: 42.3, date: '18 Aug 2024' },
-  { name: 'Sun Park', amount: 120, date: '17 Aug 2024' },
-  { name: 'Urban Services Hub', amount: 65.5, date: '17 Aug 2024' },
+  { name: "Emma Richardson", amount: 75.5, date: "19 Aug 2024" },
+  { name: "Savory Bites Bistro", amount: 55.5, date: "19 Aug 2024" },
+  { name: "Daniel Carter", amount: 42.3, date: "18 Aug 2024" },
+  { name: "Sun Park", amount: 120, date: "17 Aug 2024" },
+  { name: "Urban Services Hub", amount: 65.5, date: "17 Aug 2024" },
 ]
 
 type TransactionSummaryProps = {
@@ -19,7 +19,7 @@ export default function TransactionSummary({
   className,
 }: TransactionSummaryProps) {
   return (
-    <div className={cn('bg-white rounded-xl pt-8 px-8', className)}>
+    <div className={cn("bg-white rounded-xl pt-8 px-8", className)}>
       {isSummary && (
         <SummaryHeader
           title="Transactions"

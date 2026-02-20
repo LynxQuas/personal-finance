@@ -1,8 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import SelectField from '@/components/SelectField'
-import TransactionTable from '@/components/transaction/TransactionTable'
+import { createFileRoute } from "@tanstack/react-router"
+import SelectField from "@/components/SelectField"
+import TransactionTable from "@/components/transaction/TransactionTable"
 
-export const Route = createFileRoute('/dashboard/transactions')({
+export const Route = createFileRoute("/dashboard/transactions")({
   component: TransactionsPage,
 })
 
@@ -26,12 +26,12 @@ function TransactionsPage() {
               name="sort-by"
               label="Sort by"
               options={[
-                { name: 'Latest', value: 'latest' },
-                { name: 'Oldest', value: 'oldest' },
-                { name: 'A to Z', value: 'atoz' },
-                { name: 'Z to A', value: 'ztoa' },
-                { name: 'Highest', value: 'highest' },
-                { name: 'Lowest', value: 'lowest' },
+                { name: "Latest", value: "latest" },
+                { name: "Oldest", value: "oldest" },
+                { name: "A to Z", value: "atoz" },
+                { name: "Z to A", value: "ztoa" },
+                { name: "Highest", value: "highest" },
+                { name: "Lowest", value: "lowest" },
               ]}
             />
           </div>
