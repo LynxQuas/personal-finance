@@ -1,27 +1,29 @@
 import { ChartPieDonutText } from "../overview/budgets-pie-chart"
 import SavingMicro from "../overview/saving-micro"
+import { useDashboardData } from "@/hooks/useDashboardData"
 
-type SpendingSummaryProps = {
-  spendingData: any
-}
+export default function SpendingSummary() {
+  const { data, loading, error } = useDashboardData()
 
-export default function SpendingSummary({
-  spendingData,
-}: SpendingSummaryProps) {
+  if (loading) return <div>Loading dashboard...</div>
+  if (error) return <div className="text-red-500">Error: {error}</div>
+  if (!data) return null
+
+  console.log(data.budgets)
+
   return (
     <div className="bg-white max-h-screen xl:sticky top-0 left-0 p-8 rounded-xl items-center-safe grid lg:grid-cols-2 md:grid-cols-2 xl:grid-cols-1">
-      <ChartPieDonutText />
+      <ChartPieDonutText budgetData={data.budgets} />
       <div className="flex flex-col gap-8">
         <h3 className="text-preset-2 font-bold">Spending Summary</h3>
 
         <div className="flex flex-col gap-7">
-          {spendingData.map((data) => (
+          {data.budgets.map((budget) => (
             <SavingMicro
-              key={data.title}
-              title={data.title}
-              limit={data.limit}
-              amount={data.amount}
-              style={{ borderLeftColor: spendingData.color }}
+              key={budget.category}
+              name={budget.category}
+              total={budget.maximum}
+              theme={budget.theme}
               className={`flex text-preset-4 flex-row justify-between border-l-6`}
             />
           ))}

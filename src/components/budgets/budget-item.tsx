@@ -1,11 +1,11 @@
 import ArrowRight from "../icons/ArrowRight"
-import TransactionSummary from "../overview/transaction-summary"
 
 type BudgetItemProps = {
   budgetTitle: string
   limit: number
   amount: number
   remaining: number
+  theme: string
 }
 
 export default function BudgetItem({
@@ -13,12 +13,16 @@ export default function BudgetItem({
   limit,
   amount,
   remaining,
+  theme,
 }: BudgetItemProps) {
   return (
     <div className="bg-white rounded-xl p-8">
       <div>
         <div className="flex items-center gap-4 mb-5">
-          <div className="w-4 h-4 rounded-full bg-secondary-green" />
+          <div
+            className="w-4 h-4 rounded-full"
+            style={{ backgroundColor: theme }}
+          />
           <h3 className="text-preset-3">{budgetTitle}</h3>
         </div>
 
@@ -28,7 +32,10 @@ export default function BudgetItem({
           <div className="h-8 w-full bg-beige-100 rounded-md" />
 
           <div className="grid grid-cols-2">
-            <div className="flex flex-col gap-1 border-l-4 border-secondary-green px-5">
+            <div
+              className="flex flex-col gap-1 border-l-4 px-5"
+              style={{ borderColor: theme }}
+            >
               <span className="text-preset-5">Spent</span>
               <span className="text-preset-4 font-bold">${amount}</span>
             </div>
@@ -45,11 +52,6 @@ export default function BudgetItem({
                 See All <ArrowRight className="w-5 h-5" />
               </span>
             </div>
-
-            <TransactionSummary
-              isSummary={false}
-              className="bg-beige-100 py-5 px-5"
-            />
           </div>
         </div>
       </div>

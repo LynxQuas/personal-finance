@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import SpendingSummary from "@/components/budgets/spending-summary"
 import BudgetItem from "@/components/budgets/budget-item"
+import { useDashboardData } from "@/hooks/useDashboardData"
 
 const spendingData = [
   {
@@ -29,6 +30,14 @@ export const Route = createFileRoute("/dashboard/budgets")({
 })
 
 function BudgetPage() {
+  const { data, loading, error } = useDashboardData()
+
+  if (loading) return <div>Loading dashboard...</div>
+  if (error) return <div className="text-red-500">Error: {error}</div>
+  if (!data) return null
+
+  console.log(data.budgets)
+
   return (
     <div className="bg-beige-100 min-h-screen md:px-10 md:pb-4 px-4 pt-6">
       <div className="flex items-center justify-between mb-10.5">
@@ -39,20 +48,17 @@ function BudgetPage() {
       </div>
 
       <div className="grid lg:grid-cols-1 xl:grid-cols-2 gap-6">
-        <SpendingSummary spendingData={spendingData} />
+        <SpendingSummary budgetsData={data.budgets} />
         <div className="flex flex-col gap-6">
-          <BudgetItem
-            budgetTitle="Entertainment"
-            limit={50}
-            amount={12}
-            remaining={50 - 12}
-          />
-          <BudgetItem
-            budgetTitle="Entertainment"
-            limit={50}
-            amount={12}
-            remaining={50 - 12}
-          />
+          {data.budgets.map((budget) => (
+            <BudgetItem
+              theme={budget.theme}
+              budgetTitle={budget.category}
+              amount={budget.maximum}
+              limit={150}
+              remaining={100}
+            />
+          ))}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn, formatCurrency } from "@/lib/utils"
 
 type SummaryCardProps = {
   className?: string
@@ -15,7 +15,7 @@ export default function SummaryCard({
       className={cn("flex gap-3 flex-col bg-white p-6 rounded-xl", className)}
     >
       <p className="text-preset-4">{title}</p>
-      <span className="text-preset-1 font-bold">${amount}</span>
+      <span className="text-preset-1 font-bold">${formatCurrency(amount)}</span>
     </div>
   )
 }

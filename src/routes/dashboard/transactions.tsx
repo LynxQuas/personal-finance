@@ -1,12 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router"
 import SelectField from "@/components/SelectField"
 import TransactionTable from "@/components/transaction/TransactionTable"
+import { useDashboardData } from "@/hooks/useDashboardData"
 
 export const Route = createFileRoute("/dashboard/transactions")({
   component: TransactionsPage,
 })
 
 function TransactionsPage() {
+  const { data, loading, error } = useDashboardData()
+
+  if (loading) return <div>Loading dashboard...</div>
+  if (error) return <div className="text-red-500">Error: {error}</div>
+  if (!data) return null
+
   return (
     <div className="bg-beige-100 min-h-screen md:px-10 md:pb-4 px-4 pt-6">
       <h2 className="text-preset-1 font-bold mb-10.5">Transactions</h2>
@@ -37,7 +44,7 @@ function TransactionsPage() {
           </div>
         </div>
         <div className="overflow-x-auto">
-          <TransactionTable />
+          <TransactionTable transactions={data.transactions} />
         </div>
       </div>
     </div>

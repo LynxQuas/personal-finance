@@ -5,3 +5,10 @@ import type { ClassValue } from "clsx"
 export function cn(...inputs: Array<ClassValue>) {
   return twMerge(clsx(inputs))
 }
+
+export function formatCurrency(amount: number) {
+  return amount.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+}

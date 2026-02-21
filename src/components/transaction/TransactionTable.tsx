@@ -1,85 +1,20 @@
 import { useState } from "react"
+import type { Transaction } from "@/types"
 
-const transactionData = [
-  {
-    id: 1,
-    name: "Emma Richardson",
-    category: "General",
-    date: "19 Aug 2024",
-    amount: "+$75.50",
-  },
-  {
-    id: 2,
-    name: "Netflix",
-    category: "Entertainment",
-    date: "18 Aug 2024",
-    amount: "-$15.99",
-  },
-  {
-    id: 3,
-    name: "Starbucks",
-    category: "Food & Drink",
-    date: "17 Aug 2024",
-    amount: "-$8.40",
-  },
-  {
-    id: 4,
-    name: "Amazon",
-    category: "Shopping",
-    date: "16 Aug 2024",
-    amount: "-$120.00",
-  },
-  {
-    id: 5,
-    name: "Michael Chen",
-    category: "Transfer",
-    date: "15 Aug 2024",
-    amount: "+$250.00",
-  },
-  {
-    id: 6,
-    name: "Spotify",
-    category: "Entertainment",
-    date: "14 Aug 2024",
-    amount: "-$9.99",
-  },
-  {
-    id: 7,
-    name: "Uber",
-    category: "Transport",
-    date: "13 Aug 2024",
-    amount: "-$22.75",
-  },
-  {
-    id: 8,
-    name: "Sarah Johnson",
-    category: "General",
-    date: "12 Aug 2024",
-    amount: "+$60.00",
-  },
-  {
-    id: 9,
-    name: "Apple Store",
-    category: "Shopping",
-    date: "11 Aug 2024",
-    amount: "-$899.00",
-  },
-  {
-    id: 10,
-    name: "Gym Membership",
-    category: "Health",
-    date: "10 Aug 2024",
-    amount: "-$45.00",
-  },
-]
-export default function TransactionTable() {
+type TransactionTableProps = {
+  transactions: Array<Transaction>
+}
+
+export default function TransactionTable({
+  transactions,
+}: TransactionTableProps) {
   const itemsPerPage = 10
   const [currentPage, setCurrentPage] = useState(1)
 
-  const totalPages = Math.ceil(transactionData.length / itemsPerPage)
+  const totalPages = Math.ceil(transactions.length / itemsPerPage)
 
   const startIndex = (currentPage - 1) * itemsPerPage
-  const currentTransactions = transactionData.slice(
+  const currentTransactions = transactions.slice(
     startIndex,
     startIndex + itemsPerPage,
   )
@@ -111,9 +46,12 @@ export default function TransactionTable() {
 
         <tbody>
           {currentTransactions.map((transaction) => (
-            <tr key={transaction.id} className="border-b border-gray-100">
+            <tr key={transaction.avatar} className="border-b border-gray-100">
               <td className="py-4 pl-5 md:pl-8 lg:pl-0 flex items-center gap-4">
-                <div className="w-10 h-10 bg-black rounded-full" />
+                <img
+                  src={transaction.avatar.replace("./", "/")}
+                  className="w-10 h-10 bg-black rounded-full"
+                />
                 <div className="flex flex-col">
                   <span className="text-preset-4 font-bold">
                     {transaction.name}
@@ -136,7 +74,7 @@ export default function TransactionTable() {
                 <div className="flex flex-col">
                   <span
                     className={`font-bold text-preset-4 ${
-                      transaction.amount.startsWith("+")
+                      transaction.amount
                         ? "text-secondary-green"
                         : "text-red-500"
                     }`}
