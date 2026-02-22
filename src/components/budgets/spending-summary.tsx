@@ -1,8 +1,12 @@
 import { ChartPieDonutText } from "../overview/budgets-pie-chart"
 import SavingMicro from "../overview/saving-micro"
-import { useDashboardData } from "@/hooks/useDashboardData"
+import type { Budget } from "@/types"
 
-export default function SpendingSummary({ budgetsData }) {
+type SpendingSummaryProps = {
+  budgetsData: Array<Budget>
+}
+
+export default function SpendingSummary({ budgetsData }: SpendingSummaryProps) {
   return (
     <div className="bg-white max-h-screen xl:sticky top-0 left-0 p-8 rounded-xl items-center-safe grid lg:grid-cols-2 md:grid-cols-2 xl:grid-cols-1">
       <ChartPieDonutText budgetData={budgetsData} />

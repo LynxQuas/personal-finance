@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { useForm } from "react-hook-form"
 import { useState } from "react"
+import { CircleX } from "lucide-react"
 import type { SubmitHandler } from "react-hook-form"
 import SpendingSummary from "@/components/budgets/spending-summary"
 import BudgetItem from "@/components/budgets/budget-item"
@@ -23,8 +24,10 @@ function BudgetPage() {
 
   const { register, handleSubmit } = useForm<BudgetInputs>()
 
-  const onSubmit: SubmitHandler<BudgetInputs> = (formData) =>
+  const onSubmit: SubmitHandler<BudgetInputs> = (formData) => {
     console.log(formData)
+    setShowModal(false)
+  }
 
   if (loading) return <div>Loading dashboard...</div>
   if (error) return <div className="text-red-500">Error: {error}</div>
@@ -49,7 +52,10 @@ function BudgetPage() {
                 >
                   <div className="flex items-center justify-between">
                     <h2 className="text-preset-1 font-bold">Add New Budget</h2>
-                    <span>x</span>
+                    <CircleX
+                      className="cursor-pointer"
+                      onClick={() => setShowModal(false)}
+                    />
                   </div>
 
                   <p>
