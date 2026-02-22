@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils"
+
 type BasicFieldProps = {
   name: string
   label: string
@@ -5,6 +7,7 @@ type BasicFieldProps = {
   register: any
   placeholder?: string
   helperText?: string
+  className?: string
 }
 
 export default function BasicField({
@@ -14,6 +17,7 @@ export default function BasicField({
   type,
   placeholder,
   helperText,
+  className,
 }: BasicFieldProps) {
   return (
     <div className="flex flex-col gap-1">
@@ -26,7 +30,10 @@ export default function BasicField({
         {...register(name, { required: `${label} is required.` })}
         autoComplete="true"
         id={name}
-        className="border-2 rounded-md lg:w-100 border-beige-500 px-5 py-3"
+        className={cn(
+          "border-2 rounded-md lg:w-100 border-beige-500 px-5 py-3",
+          className,
+        )}
       />
       <span className="text-sm text-end">{helperText}</span>
     </div>

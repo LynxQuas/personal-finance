@@ -18,8 +18,6 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function ChartPieDonutText({ budgetData }) {
-  console.log(budgetData)
-
   const chartData = budgetData.map((data) => ({
     budget: data.category,
     amount: data.maximum,
