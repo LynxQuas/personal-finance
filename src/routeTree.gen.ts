@@ -14,6 +14,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteRouteImport } from './routes/_dashboard/route'
 import { Route as DashboardIndexRouteImport } from './routes/_dashboard/index'
 import { Route as DashboardTransactionsRouteImport } from './routes/_dashboard/transactions'
+import { Route as DashboardRecurringBillsRouteImport } from './routes/_dashboard/recurring-bills'
 import { Route as DashboardPotsRouteImport } from './routes/_dashboard/pots'
 import { Route as DashboardBudgetsRouteImport } from './routes/_dashboard/budgets'
 
@@ -41,6 +42,11 @@ const DashboardTransactionsRoute = DashboardTransactionsRouteImport.update({
   path: '/transactions',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
+const DashboardRecurringBillsRoute = DashboardRecurringBillsRouteImport.update({
+  id: '/recurring-bills',
+  path: '/recurring-bills',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const DashboardPotsRoute = DashboardPotsRouteImport.update({
   id: '/pots',
   path: '/pots',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/sign-up': typeof SignUpRoute
   '/budgets': typeof DashboardBudgetsRoute
   '/pots': typeof DashboardPotsRoute
+  '/recurring-bills': typeof DashboardRecurringBillsRoute
   '/transactions': typeof DashboardTransactionsRoute
 }
 export interface FileRoutesByTo {
@@ -65,6 +72,7 @@ export interface FileRoutesByTo {
   '/sign-up': typeof SignUpRoute
   '/budgets': typeof DashboardBudgetsRoute
   '/pots': typeof DashboardPotsRoute
+  '/recurring-bills': typeof DashboardRecurringBillsRoute
   '/transactions': typeof DashboardTransactionsRoute
   '/': typeof DashboardIndexRoute
 }
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   '/sign-up': typeof SignUpRoute
   '/_dashboard/budgets': typeof DashboardBudgetsRoute
   '/_dashboard/pots': typeof DashboardPotsRoute
+  '/_dashboard/recurring-bills': typeof DashboardRecurringBillsRoute
   '/_dashboard/transactions': typeof DashboardTransactionsRoute
   '/_dashboard/': typeof DashboardIndexRoute
 }
@@ -86,9 +95,17 @@ export interface FileRouteTypes {
     | '/sign-up'
     | '/budgets'
     | '/pots'
+    | '/recurring-bills'
     | '/transactions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/sign-up' | '/budgets' | '/pots' | '/transactions' | '/'
+  to:
+    | '/login'
+    | '/sign-up'
+    | '/budgets'
+    | '/pots'
+    | '/recurring-bills'
+    | '/transactions'
+    | '/'
   id:
     | '__root__'
     | '/_dashboard'
@@ -96,6 +113,7 @@ export interface FileRouteTypes {
     | '/sign-up'
     | '/_dashboard/budgets'
     | '/_dashboard/pots'
+    | '/_dashboard/recurring-bills'
     | '/_dashboard/transactions'
     | '/_dashboard/'
   fileRoutesById: FileRoutesById
@@ -143,6 +161,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardTransactionsRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/_dashboard/recurring-bills': {
+      id: '/_dashboard/recurring-bills'
+      path: '/recurring-bills'
+      fullPath: '/recurring-bills'
+      preLoaderRoute: typeof DashboardRecurringBillsRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/_dashboard/pots': {
       id: '/_dashboard/pots'
       path: '/pots'
@@ -163,6 +188,7 @@ declare module '@tanstack/react-router' {
 interface DashboardRouteRouteChildren {
   DashboardBudgetsRoute: typeof DashboardBudgetsRoute
   DashboardPotsRoute: typeof DashboardPotsRoute
+  DashboardRecurringBillsRoute: typeof DashboardRecurringBillsRoute
   DashboardTransactionsRoute: typeof DashboardTransactionsRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
@@ -170,6 +196,7 @@ interface DashboardRouteRouteChildren {
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardBudgetsRoute: DashboardBudgetsRoute,
   DashboardPotsRoute: DashboardPotsRoute,
+  DashboardRecurringBillsRoute: DashboardRecurringBillsRoute,
   DashboardTransactionsRoute: DashboardTransactionsRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }

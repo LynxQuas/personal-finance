@@ -1,8 +1,6 @@
 export default function TransactionIcon({ className }: { className: string }) {
   return (
     <svg
-      width="20"
-      height="20"
       viewBox="0 0 24 24"
       className={className}
       fill="currentColor"

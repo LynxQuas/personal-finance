@@ -1,8 +1,10 @@
-export default function RecurringBills({ className }: { className: string }) {
+export default function RecurringBillsIcon({
+  className,
+}: {
+  className: string
+}) {
   return (
     <svg
-      width="24"
-      height="24"
       viewBox="0 0 24 24"
       className={className}
       fill="currentColor"

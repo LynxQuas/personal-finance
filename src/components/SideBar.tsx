@@ -3,7 +3,7 @@ import OverviewIcon from "./icons/OverviewIcon"
 import TransactionIcon from "./icons/TransactionsIcon"
 import BudgetsIcon from "./icons/BudgetsIcon"
 import PotsIcon from "./icons/PotsIcon"
-import RecurringBills from "./icons/RecurringBillsIcon"
+import RecurringBillsIcon from "./icons/RecurringBillsIcon"
 
 const navItems = [
   { label: "Overview", href: "/", icon: OverviewIcon },
@@ -17,7 +17,7 @@ const navItems = [
   {
     label: "Recurring Bills",
     href: "/recurring-bills",
-    icon: RecurringBills,
+    icon: RecurringBillsIcon,
   },
 ]
 
@@ -43,7 +43,9 @@ export default function Sidebar() {
                   <div className="flex items-center gap-x-4 text-sm font-semibold">
                     <nav.icon
                       className={
-                        isActive ? "fill-secondary-green" : "fill-gray-500"
+                        isActive
+                          ? "fill-secondary-green w-6 h-6"
+                          : "fill-gray-500 w-6 h-6"
                       }
                     />
                     {nav.label}

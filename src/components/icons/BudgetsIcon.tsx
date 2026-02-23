@@ -1,9 +1,7 @@
 export default function BudgetsIcon({ className }: { className: string }) {
   return (
     <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
+      viewBox="0 0 24 24"
       fill="currentColor"
       className={className}
       xmlns="http://www.w3.org/2000/svg"
