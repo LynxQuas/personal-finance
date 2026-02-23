@@ -23,7 +23,6 @@ export function ChartPieDonutText({ budgetData }) {
     amount: data.maximum,
     fill: data.theme,
   }))
-  console.log(chartData)
 
   const limit = React.useMemo(() => {
     return chartData.reduce((acc, curr) => acc + curr.amount, 0)

@@ -3,7 +3,7 @@ import SelectField from "@/components/SelectField"
 import TransactionTable from "@/components/transaction/TransactionTable"
 import { useDashboardData } from "@/hooks/useDashboardData"
 
-export const Route = createFileRoute("/dashboard/transactions")({
+export const Route = createFileRoute("/_dashboard/transactions")({
   component: TransactionsPage,
 })
 

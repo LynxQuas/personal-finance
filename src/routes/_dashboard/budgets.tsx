@@ -8,7 +8,7 @@ import BudgetItem from "@/components/budgets/budget-item"
 import { useDashboardData } from "@/hooks/useDashboardData"
 import BasicField from "@/components/BasicField"
 
-export const Route = createFileRoute("/dashboard/budgets")({
+export const Route = createFileRoute("/_dashboard/budgets")({
   component: BudgetPage,
 })
 

@@ -17,12 +17,15 @@ export default function RecurringBillSummary({
       <SummaryHeader
         title="Recurring Bills"
         label="See Details"
-        href="/dashboard/recurring-bills"
+        href="/recurring-bills"
       />
 
       <div className="flex flex-col gap-4">
         {bills.map((bill) => (
-          <div className="flex justify-between border-l-4 border-secondary-green px-4 py-5 bg-beige-100 rounded-xl">
+          <div
+            key={bill.name}
+            className="flex justify-between border-l-4 border-secondary-green px-4 py-5 bg-beige-100 rounded-xl"
+          >
             <span className="text-preset-4">{bill.name}</span>
             <span className="text-preset-4 font-bold">${bill.amount}</span>
           </div>

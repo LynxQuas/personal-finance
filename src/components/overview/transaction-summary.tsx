@@ -19,7 +19,7 @@ export default function TransactionSummary({
         <SummaryHeader
           title="Transactions"
           label="See Details"
-          href="/dashboard/transactions"
+          href="/transactions"
         />
       )}
       <div className="flex flex-col">

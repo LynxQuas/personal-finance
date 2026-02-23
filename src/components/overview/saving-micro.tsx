@@ -18,7 +18,7 @@ export default function SavingMicro({
   return (
     <div
       style={{ borderColor: theme }}
-      className={cn(`flex gap-1 flex-col border-l-4 px-5 py-1`, className)}
+      className={cn(`flex gap-1 flex-col border-l-4 pl-2 py-1`, className)}
     >
       <span className="text-preset-5 text-medium-gray">{name}</span>
       <div className="flex items-center gap-2">

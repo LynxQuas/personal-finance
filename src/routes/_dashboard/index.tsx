@@ -6,7 +6,7 @@ import SummaryCard from "@/components/overview/summary-card"
 import TransactionSummary from "@/components/overview/transaction-summary"
 import { useDashboardData } from "@/hooks/useDashboardData"
 
-export const Route = createFileRoute("/dashboard/")({
+export const Route = createFileRoute("/_dashboard/")({
   component: OverviewPage,
 })
 

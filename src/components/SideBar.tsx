@@ -6,17 +6,17 @@ import PotsIcon from "./icons/PotsIcon"
 import RecurringBills from "./icons/RecurringBillsIcon"
 
 const navItems = [
-  { label: "Overview", href: "/dashboard/", icon: OverviewIcon },
+  { label: "Overview", href: "/", icon: OverviewIcon },
   {
     label: "Transactions",
-    href: "/dashboard/transactions",
+    href: "/transactions",
     icon: TransactionIcon,
   },
-  { label: "Budgets", href: "/dashboard/budgets", icon: BudgetsIcon },
-  { label: "Pots", href: "/dashboard/pots", icon: PotsIcon },
+  { label: "Budgets", href: "/budgets", icon: BudgetsIcon },
+  { label: "Pots", href: "/pots", icon: PotsIcon },
   {
     label: "Recurring Bills",
-    href: "/dashboard/recurring-bills",
+    href: "/recurring-bills",
     icon: RecurringBills,
   },
 ]

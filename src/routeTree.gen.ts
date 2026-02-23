@@ -11,10 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignUpRouteImport } from './routes/sign-up'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
-import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as DashboardTransactionsRouteImport } from './routes/dashboard/transactions'
-import { Route as DashboardBudgetsRouteImport } from './routes/dashboard/budgets'
+import { Route as DashboardRouteRouteImport } from './routes/_dashboard/route'
+import { Route as DashboardIndexRouteImport } from './routes/_dashboard/index'
+import { Route as DashboardTransactionsRouteImport } from './routes/_dashboard/transactions'
+import { Route as DashboardPotsRouteImport } from './routes/_dashboard/pots'
+import { Route as DashboardBudgetsRouteImport } from './routes/_dashboard/budgets'
 
 const SignUpRoute = SignUpRouteImport.update({
   id: '/sign-up',
@@ -27,8 +28,7 @@ const LoginRoute = LoginRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRouteRoute = DashboardRouteRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+  id: '/_dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
@@ -41,6 +41,11 @@ const DashboardTransactionsRoute = DashboardTransactionsRouteImport.update({
   path: '/transactions',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
+const DashboardPotsRoute = DashboardPotsRouteImport.update({
+  id: '/pots',
+  path: '/pots',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const DashboardBudgetsRoute = DashboardBudgetsRouteImport.update({
   id: '/budgets',
   path: '/budgets',
@@ -48,53 +53,51 @@ const DashboardBudgetsRoute = DashboardBudgetsRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/': typeof DashboardIndexRoute
   '/login': typeof LoginRoute
   '/sign-up': typeof SignUpRoute
-  '/dashboard/budgets': typeof DashboardBudgetsRoute
-  '/dashboard/transactions': typeof DashboardTransactionsRoute
-  '/dashboard/': typeof DashboardIndexRoute
+  '/budgets': typeof DashboardBudgetsRoute
+  '/pots': typeof DashboardPotsRoute
+  '/transactions': typeof DashboardTransactionsRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/sign-up': typeof SignUpRoute
-  '/dashboard/budgets': typeof DashboardBudgetsRoute
-  '/dashboard/transactions': typeof DashboardTransactionsRoute
-  '/dashboard': typeof DashboardIndexRoute
+  '/budgets': typeof DashboardBudgetsRoute
+  '/pots': typeof DashboardPotsRoute
+  '/transactions': typeof DashboardTransactionsRoute
+  '/': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/_dashboard': typeof DashboardRouteRouteWithChildren
   '/login': typeof LoginRoute
   '/sign-up': typeof SignUpRoute
-  '/dashboard/budgets': typeof DashboardBudgetsRoute
-  '/dashboard/transactions': typeof DashboardTransactionsRoute
-  '/dashboard/': typeof DashboardIndexRoute
+  '/_dashboard/budgets': typeof DashboardBudgetsRoute
+  '/_dashboard/pots': typeof DashboardPotsRoute
+  '/_dashboard/transactions': typeof DashboardTransactionsRoute
+  '/_dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/dashboard'
+    | '/'
     | '/login'
     | '/sign-up'
-    | '/dashboard/budgets'
-    | '/dashboard/transactions'
-    | '/dashboard/'
+    | '/budgets'
+    | '/pots'
+    | '/transactions'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/login'
-    | '/sign-up'
-    | '/dashboard/budgets'
-    | '/dashboard/transactions'
-    | '/dashboard'
+  to: '/login' | '/sign-up' | '/budgets' | '/pots' | '/transactions' | '/'
   id:
     | '__root__'
-    | '/dashboard'
+    | '/_dashboard'
     | '/login'
     | '/sign-up'
-    | '/dashboard/budgets'
-    | '/dashboard/transactions'
-    | '/dashboard/'
+    | '/_dashboard/budgets'
+    | '/_dashboard/pots'
+    | '/_dashboard/transactions'
+    | '/_dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,31 +122,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
+    '/_dashboard': {
+      id: '/_dashboard'
+      path: ''
+      fullPath: '/'
       preLoaderRoute: typeof DashboardRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard/': {
-      id: '/dashboard/'
+    '/_dashboard/': {
+      id: '/_dashboard/'
       path: '/'
-      fullPath: '/dashboard/'
+      fullPath: '/'
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
-    '/dashboard/transactions': {
-      id: '/dashboard/transactions'
+    '/_dashboard/transactions': {
+      id: '/_dashboard/transactions'
       path: '/transactions'
-      fullPath: '/dashboard/transactions'
+      fullPath: '/transactions'
       preLoaderRoute: typeof DashboardTransactionsRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
-    '/dashboard/budgets': {
-      id: '/dashboard/budgets'
+    '/_dashboard/pots': {
+      id: '/_dashboard/pots'
+      path: '/pots'
+      fullPath: '/pots'
+      preLoaderRoute: typeof DashboardPotsRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/_dashboard/budgets': {
+      id: '/_dashboard/budgets'
       path: '/budgets'
-      fullPath: '/dashboard/budgets'
+      fullPath: '/budgets'
       preLoaderRoute: typeof DashboardBudgetsRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
@@ -152,12 +162,14 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteRouteChildren {
   DashboardBudgetsRoute: typeof DashboardBudgetsRoute
+  DashboardPotsRoute: typeof DashboardPotsRoute
   DashboardTransactionsRoute: typeof DashboardTransactionsRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardBudgetsRoute: DashboardBudgetsRoute,
+  DashboardPotsRoute: DashboardPotsRoute,
   DashboardTransactionsRoute: DashboardTransactionsRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
