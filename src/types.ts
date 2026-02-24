@@ -11,6 +11,7 @@ export type Budget = {
   category: string
   maximum: number
   theme: string
+  total: number
 }
 
 export type Pot = {

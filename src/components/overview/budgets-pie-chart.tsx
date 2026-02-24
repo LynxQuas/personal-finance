@@ -1,8 +1,5 @@
-"use client"
-
 import * as React from "react"
 import { Label, Pie, PieChart } from "recharts"
-
 import type { ChartConfig } from "@/components/ui/chart"
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -10,6 +7,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import type { Budget } from "@/types"
 
 const chartConfig = {
   amount: {
@@ -17,7 +15,11 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function ChartPieDonutText({ budgetData }) {
+type BudgetPieChartProps = { 
+    budgetData: Budget[]
+}
+
+export function BudgetPieChart({ budgetData }: BudgetPieChartProps) {
   const chartData = budgetData.map((data) => ({
     budget: data.category,
     amount: data.maximum,
