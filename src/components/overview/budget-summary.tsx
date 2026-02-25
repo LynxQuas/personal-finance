@@ -1,10 +1,10 @@
-import type { Budget } from "@/types"
 import { BudgetPieChart } from "./budgets-pie-chart"
 import SavingMicro from "./saving-micro"
 import SummaryHeader from "./summary-header"
+import type { Budget } from "@/types"
 
-type BudgetSummaryProps = { 
-    budgets: Budget[],
+type BudgetSummaryProps = {
+  budgets: Array<Budget>
 }
 
 export default function BudgetSummary({ budgets }: BudgetSummaryProps) {

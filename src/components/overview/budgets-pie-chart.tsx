@@ -1,13 +1,13 @@
 import * as React from "react"
 import { Label, Pie, PieChart } from "recharts"
 import type { ChartConfig } from "@/components/ui/chart"
+import type { Budget } from "@/types"
 import { Card, CardContent } from "@/components/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import type { Budget } from "@/types"
 
 const chartConfig = {
   amount: {
@@ -15,8 +15,8 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-type BudgetPieChartProps = { 
-    budgetData: Budget[]
+type BudgetPieChartProps = {
+  budgetData: Array<Budget>
 }
 
 export function BudgetPieChart({ budgetData }: BudgetPieChartProps) {

@@ -3,6 +3,7 @@ import Sidebar from "@/components/SideBar"
 
 export const Route = createFileRoute("/_dashboard")({
   component: DashboardLayout,
+  notFoundComponent: () => <div>404 Not Found</div>,
 })
 
 function DashboardLayout() {

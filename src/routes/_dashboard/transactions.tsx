@@ -41,6 +41,18 @@ function TransactionsPage() {
                 { name: "Lowest", value: "lowest" },
               ]}
             />
+            <SelectField
+              name="category"
+              label="Category"
+              options={[
+                { name: "All Transactions", value: "all-transactions" },
+                { name: "Entertainment", value: "entertainment" },
+                { name: "Bills", value: "bills" },
+                { name: "Groceries", value: "groceries" },
+                { name: "Dining Out", value: "dining-out" },
+                { name: "Transportation", value: "transportation" },
+              ]}
+            />
           </div>
         </div>
         <div className="overflow-x-auto">
