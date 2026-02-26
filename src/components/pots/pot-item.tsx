@@ -1,3 +1,5 @@
+import SpendingProgressBar from "../budgets/spending-progress-bar"
+
 export default function PotItem() {
   return (
     <div className="p-6 bg-white rounded-xl flex flex-col gap-8">
@@ -20,7 +22,7 @@ export default function PotItem() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <div className="w-full h-2 bg-beige-100 rounded-2xl" />
+          <SpendingProgressBar className="w-full h-2 rounded-l-xl" bgColor="var(--secondary-green)" widthPercentage="40%" />
 
           <div className="flex justify-between items-center">
             <span className="text-preset-5 font-bold">7.95%</span>
