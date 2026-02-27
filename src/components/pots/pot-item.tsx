@@ -22,7 +22,11 @@ export default function PotItem() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <SpendingProgressBar className="w-full h-2 rounded-l-xl" bgColor="var(--secondary-green)" widthPercentage="40%" />
+          <SpendingProgressBar
+            className="w-full h-2 rounded-l-xl"
+            bgColor="var(--secondary-green)"
+            widthPercentage="40%"
+          />
 
           <div className="flex justify-between items-center">
             <span className="text-preset-5 font-bold">7.95%</span>

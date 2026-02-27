@@ -29,7 +29,7 @@ export default function BudgetItem({
 
         <div className="flex flex-col gap-5">
           <h4>Maximum of ${limit}</h4>
-            <SpendingProgressBar bgColor={theme} widthPercentage="30%"/>
+          <SpendingProgressBar bgColor={theme} widthPercentage="30%" />
           <div className="grid grid-cols-2">
             <div
               className="flex flex-col gap-1 border-l-4 px-5"

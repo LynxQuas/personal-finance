@@ -1,4 +1,5 @@
 import DropDown from "./icons/DropDownIcon"
+import type { UseFormRegister } from "react-hook-form"
 import { cn } from "@/lib/utils"
 
 type options = { name: string; value: string }
@@ -8,6 +9,7 @@ type SelectFieldProps = {
   name: string
   label: string
   className?: string
+  register?: UseFormRegister<any>
 }
 
 export default function SelectField({
@@ -15,12 +17,14 @@ export default function SelectField({
   options,
   label,
   className,
+  register,
 }: SelectFieldProps) {
   return (
-    <div className="w-full flex items-center gap-2">
+    <div className={cn("w-full flex items-center gap-2", className)}>
       <label htmlFor={name}>{label}</label>
       <div className={cn("relative", className)}>
         <select
+          {...(register ? register(name) : {})}
           id={name}
           name={name}
           className="appearance-none w-full bg-white py-3 px-5 pr-10
