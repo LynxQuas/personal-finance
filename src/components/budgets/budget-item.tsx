@@ -1,59 +1,80 @@
 import ArrowRight from "../icons/ArrowRight"
+import { Ellipsis } from 'lucide-react';
 import SpendingProgressBar from "./spending-progress-bar"
+import { useState } from "react";
 
 type BudgetItemProps = {
-  budgetTitle: string
-  limit: number
-  amount: number
-  remaining: number
-  theme: string
+    budgetTitle: string
+    limit: number
+    amount: number
+    remaining: number
+    theme: string
 }
 
 export default function BudgetItem({
-  budgetTitle,
-  limit,
-  amount,
-  remaining,
-  theme,
+    budgetTitle,
+    limit,
+    amount,
+    remaining,
+    theme,
 }: BudgetItemProps) {
-  return (
-    <div className="bg-white rounded-xl p-8">
-      <div>
-        <div className="flex items-center gap-4 mb-5">
-          <div
-            className="w-4 h-4 rounded-full"
-            style={{ backgroundColor: theme }}
-          />
-          <h3 className="text-preset-3">{budgetTitle}</h3>
-        </div>
+    const [showDropdown, setShowDropdown] = useState(false);
 
-        <div className="flex flex-col gap-5">
-          <h4>Maximum of ${limit}</h4>
-          <SpendingProgressBar bgColor={theme} widthPercentage="30%" />
-          <div className="grid grid-cols-2">
-            <div
-              className="flex flex-col gap-1 border-l-4 px-5"
-              style={{ borderColor: theme }}
-            >
-              <span className="text-preset-5">Spent</span>
-              <span className="text-preset-4 font-bold">${amount}</span>
-            </div>
-            <div className="flex flex-col gap-1 border-l-4 border-beige-100 px-5">
-              <span className="text-preset-5">Remaining</span>
-              <span className="text-preset-4 font-bold">${remaining}</span>
-            </div>
-          </div>
+    return (
+        <div className="bg-white rounded-xl p-8">
+            <div>
+                <div className="flex items-center justify-between mb-5">
+                    <div className="flex items-center gap-4">
+                        <div
+                            className="w-4 h-4 rounded-full"
+                            style={{ backgroundColor: theme }}
+                        />
+                        <h3 className="text-preset-3">{budgetTitle}</h3>
+                    </div>
+                    <div className="cursor-pointer relative">
+                        <Ellipsis onClick={() => setShowDropdown(true)} className="" />
 
-          <div className="p-5 bg-beige-100 rounded-xl">
-            <div className="flex justify-between items-center">
-              <h3 className="text-preset-3 font-bold">Latest Spending</h3>
-              <span className="flex items-center gap-6 text-beige-500">
-                See All <ArrowRight className="w-5 h-5" />
-              </span>
+                        {showDropdown && <div className="absolute bg-white shadow-lg rounded-md w-34 top-10 right-0">
+                            <ul className="">
+                                <li className="py-3 px-5 text-preset-4">Edit Budget</li>
+                                <li className="py-3 px-5 text-secondary-red text-preset-4">Delete Budget</li>
+                            </ul>
+
+                        </div>
+                        }
+
+                    </div>
+
+
+                </div>
+
+                <div className="flex flex-col gap-5">
+                    <h4>Maximum of ${limit}</h4>
+                    <SpendingProgressBar bgColor={theme} widthPercentage="30%" />
+                    <div className="grid grid-cols-2">
+                        <div
+                            className="flex flex-col gap-1 border-l-4 px-5"
+                            style={{ borderColor: theme }}
+                        >
+                            <span className="text-preset-5">Spent</span>
+                            <span className="text-preset-4 font-bold">${amount}</span>
+                        </div>
+                        <div className="flex flex-col gap-1 border-l-4 border-beige-100 px-5">
+                            <span className="text-preset-5">Remaining</span>
+                            <span className="text-preset-4 font-bold">${remaining}</span>
+                        </div>
+                    </div>
+
+                    <div className="p-5 bg-beige-100 rounded-xl">
+                        <div className="flex justify-between items-center">
+                            <h3 className="text-preset-3 font-bold">Latest Spending</h3>
+                            <span className="flex items-center gap-6 text-beige-500">
+                                See All <ArrowRight className="w-5 h-5" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  )
+    )
 }

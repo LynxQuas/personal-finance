@@ -38,7 +38,7 @@ export default function CustomSelectField({
 
         return (
           <div className="relative">
-            {label && <label>{label}</label>}
+            {label && <label className="text-preset-4" htmlFor={name}>{label}</label>}
 
             <button
               type="button"
