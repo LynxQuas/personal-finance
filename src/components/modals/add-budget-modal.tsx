@@ -16,8 +16,17 @@ type AddBudgetModalProps = {
   onClose: () => void
 }
 
+const options = [
+  { name: "Green", value: "var(--secondary-green)" },
+  { name: "Yellow", value: "var(--secondary-yellow)" },
+  { name: "Red", value: "var(--secondary-red)" },
+  { name: "Navy", value: "var(--secondary-navy)" },
+  { name: "Cyan", value: "var(--secondary-cyan)" },
+  { name: "Purple", value: "var(--secondary-purple)" },
+]
+
 export default function AddBudgetModal({ onClose }: AddBudgetModalProps) {
-  const { register, handleSubmit } = useForm<BudgetInputs>()
+  const { register, handleSubmit, control } = useForm<BudgetInputs>()
   const onSubmit: SubmitHandler<BudgetInputs> = (formData) => {
     console.log(formData)
     onClose()
@@ -59,7 +68,11 @@ export default function AddBudgetModal({ onClose }: AddBudgetModalProps) {
             type="text"
             register={register}
           />
-          <CustomSelectField />
+          <CustomSelectField
+            options={options}
+            name="color_tag"
+            control={control}
+          />
 
           <button className="bg-gray-950 cursor-pointer text-white text-preset-4 font-bold py-4 rounded-md">
             Add Budget
