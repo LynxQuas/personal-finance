@@ -2,7 +2,7 @@ import DropDown from "./icons/DropDownIcon"
 import type { UseFormRegister } from "react-hook-form"
 import { cn } from "@/lib/utils"
 
-type options = { name: string; value: string }
+type options = { name: string; value: string; color?: string }
 
 type SelectFieldProps = {
   options: Array<options>
@@ -32,7 +32,7 @@ export default function SelectField({
                                 outline-none"
         >
           {options.map((option) => (
-            <option key={option.value} value={option.value}>
+            <option className="" key={option.value} value={option.value}>
               {option.name}
             </option>
           ))}

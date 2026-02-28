@@ -4,6 +4,7 @@ import SpendingSummary from "@/components/budgets/spending-summary"
 import BudgetItem from "@/components/budgets/budget-item"
 import { useDashboardData } from "@/hooks/useDashboardData"
 import AddBudgetModal from "@/components/modals/add-budget-modal"
+import useDisableBackgroundScroll from "@/hooks/useDisableBackgroundScroll"
 
 export const Route = createFileRoute("/_dashboard/budgets")({
   component: BudgetPage,
@@ -12,6 +13,8 @@ export const Route = createFileRoute("/_dashboard/budgets")({
 function BudgetPage() {
   const { data, loading, error } = useDashboardData()
   const [showModal, setShowModal] = useState(false)
+
+  useDisableBackgroundScroll(showModal)
 
   if (loading) return <div>Loading dashboard...</div>
   if (error) return <div className="text-red-500">Error: {error}</div>

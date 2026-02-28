@@ -15,6 +15,10 @@
   --secondary-purple: #826cb0;
 }
 
+.custom-scroll-bar {
+  scrollbar-width: none;
+}
+
 @theme {
   --color-primary-gray: var(--primary-gray);
   --color-medium-gray: var(--medium-gray);

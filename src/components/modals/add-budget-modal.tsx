@@ -2,6 +2,7 @@ import { CircleX } from "lucide-react"
 import { useForm } from "react-hook-form"
 import BasicField from "../BasicField"
 import SelectField from "../SelectField"
+import CustomSelectField from "../custom-select-field"
 import ModalLayout from "./modal-layout"
 import type { SubmitHandler } from "react-hook-form"
 
@@ -58,13 +59,8 @@ export default function AddBudgetModal({ onClose }: AddBudgetModalProps) {
             type="text"
             register={register}
           />
-          <BasicField
-            name="color_tag"
-            className="px-5 py-3 lg:w-full"
-            label="Color Tag"
-            type="text"
-            register={register}
-          />
+          <CustomSelectField />
+
           <button className="bg-gray-950 cursor-pointer text-white text-preset-4 font-bold py-4 rounded-md">
             Add Budget
           </button>

@@ -31,7 +31,7 @@ export default function BasicField({
         autoComplete="true"
         id={name}
         className={cn(
-          "border-2 rounded-md lg:w-100 border-beige-500 px-5 py-3",
+          "border rounded-md lg:w-100 border-beige-500 px-5 py-3",
           className,
         )}
       />
