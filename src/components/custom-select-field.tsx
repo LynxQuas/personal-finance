@@ -61,7 +61,7 @@ export default function CustomSelectField({
                   <li
                     key={option.value}
                     onClick={() => {
-                      field.onChange(option.value) // 👈 THIS updates RHF
+                      field.onChange(option.value)
                       setShowDropDownMenu(false)
                     }}
                     className="flex cursor-pointer items-center gap-2 py-3 px-5"
