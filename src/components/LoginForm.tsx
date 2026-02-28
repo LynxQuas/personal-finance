@@ -1,6 +1,7 @@
 import { Controller, useForm } from "react-hook-form"
 import { Link } from "@tanstack/react-router"
 import BasicField from "./BasicField"
+import InputWithIcon from "./input-with-icon"
 import type { SubmitHandler } from "react-hook-form"
 
 type Inputs = {
@@ -10,7 +11,6 @@ type Inputs = {
 
 export default function LoginForm() {
   const {
-    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -26,25 +26,21 @@ export default function LoginForm() {
       <div className="flex flex-col gap-2">
         <h2 className="py-4 text-3xl font-bold">Login</h2>
 
-        <div className="flex flex-col gap-1">
-          <BasicField
-            type="text"
-            label="Email"
-            register={register}
-            name="email"
-            helperText={errors.email && errors.email.message}
-          />
-        </div>
+        <BasicField
+          type="text"
+          label="Email"
+          register={register}
+          name="email"
+          helperText={errors.email && errors.email.message}
+        />
 
-        <div className="flex flex-col gap-1">
-          <BasicField
-            type="password"
-            label="Password"
-            register={register}
-            name="password"
-            helperText={errors.password && errors.password.message}
-          />
-        </div>
+        <InputWithIcon
+          helperText={errors.password && errors.password.message}
+          className=""
+          name="password"
+          label="Password"
+          register={register}
+        />
 
         <button className="w-full py-4 bg-black text-white rounded-md cursor-pointer">
           Login

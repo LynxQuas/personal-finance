@@ -8,13 +8,13 @@ export const Route = createFileRoute("/login")({
 
 function LoginPage() {
   return (
-    <main>
+    <main className="bg-beige-100">
       <div className="flex min-h-screen">
         <div>
           <img src={LoginHero} className="w-200 h-screen lg:block hidden" />
         </div>
 
-        <div className="w-full lg:min-h-0 min-h-screen flex items-center justify-center bg-beige-100">
+        <div className="w-full lg:min-h-0 min-h-screen flex items-center justify-center">
           <LoginForm />
         </div>
       </div>
