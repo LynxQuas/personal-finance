@@ -1,7 +1,7 @@
 import { useState } from "react"
-import {  Controller } from "react-hook-form"
+import { Controller } from "react-hook-form"
 import DropDown from "./icons/DropDownIcon"
-import type {Control} from "react-hook-form";
+import type { Control } from "react-hook-form"
 
 type Option = {
   name: string
@@ -38,7 +38,11 @@ export default function CustomSelectField({
 
         return (
           <div className="relative">
-            {label && <label className="text-preset-4" htmlFor={name}>{label}</label>}
+            {label && (
+              <label className="text-preset-4" htmlFor={name}>
+                {label}
+              </label>
+            )}
 
             <button
               type="button"
