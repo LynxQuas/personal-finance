@@ -60,7 +60,7 @@ export default function CustomSelectField({
             </button>
 
             {showDropDownMenu && (
-              <ul className="absolute bg-white w-full">
+              <ul className="absolute custom-scroll-bar rounded-b-md max-h-52 overflow-y-scroll bg-white w-full">
                 {filteredOptions.map((option) => (
                   <li
                     key={option.value}
@@ -68,7 +68,7 @@ export default function CustomSelectField({
                       field.onChange(option.value)
                       setShowDropDownMenu(false)
                     }}
-                    className="flex cursor-pointer items-center gap-2 py-3 px-5"
+                    className="flex cursor-pointer items-center gap-2 py-3 px-5 border-b border-b-beige-100"
                   >
                     <div
                       style={{ backgroundColor: option.value }}

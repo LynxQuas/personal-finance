@@ -1,3 +1,4 @@
+import { Ellipsis } from "lucide-react"
 import SpendingProgressBar from "../budgets/spending-progress-bar"
 
 export default function PotItem() {
@@ -12,7 +13,7 @@ export default function PotItem() {
           <span className="text-preset-2">Savings</span>
         </div>
 
-        <span>..</span>
+        <Ellipsis />
       </div>
 
       <div className="flex flex-col gap-4">
