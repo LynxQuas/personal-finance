@@ -26,6 +26,8 @@ function PotsPage() {
 
         <div className="grid xl:grid-cols-2 gap-6 grid-cols-1">
           <PotItem />
+          <PotItem />
+          <PotItem />
         </div>
       </div>
     </>

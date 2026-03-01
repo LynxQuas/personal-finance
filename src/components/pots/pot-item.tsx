@@ -1,7 +1,28 @@
 import { Ellipsis } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 import SpendingProgressBar from "../budgets/spending-progress-bar"
 
 export default function PotItem() {
+  const [showDropdown, setShowDropdown] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false)
+      }
+    }
+
+    document.addEventListener("click", handleClickOutside)
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside)
+    }
+  }, [])
+
   return (
     <div className="p-6 bg-white rounded-xl flex flex-col gap-8">
       <div className="flex items-center justify-between">
@@ -13,7 +34,25 @@ export default function PotItem() {
           <span className="text-preset-2">Savings</span>
         </div>
 
-        <Ellipsis />
+        <div ref={dropdownRef} className="cursor-pointer relative">
+          <Ellipsis
+            onClick={() => setShowDropdown((prev) => !prev)}
+            className=""
+          />
+
+          {showDropdown && (
+            <div className="absolute bg-white shadow-lg rounded-md w-34 top-10 right-0">
+              <ul className="">
+                <li className="py-3 px-5 text-preset-4 border-b border-beige-100">
+                  Edit Pot
+                </li>
+                <li className="py-3 px-5 text-secondary-red text-preset-4">
+                  Delete Pot
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="flex flex-col gap-4">
