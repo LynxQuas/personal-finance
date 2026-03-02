@@ -46,6 +46,8 @@ export default function CustomSelectField({
 
             <button
               type="button"
+              name={name}
+              id={name}
               onClick={() => setShowDropDownMenu((prev) => !prev)}
               className="border flex justify-between items-center py-3 px-5 rounded-md w-full"
             >

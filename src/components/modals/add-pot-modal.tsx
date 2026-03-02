@@ -1,7 +1,6 @@
 import { CircleX } from "lucide-react"
 import { useForm } from "react-hook-form"
 import BasicField from "../BasicField"
-import SelectField from "../SelectField"
 import CustomSelectField from "../custom-select-field"
 import ModalLayout from "./modal-layout"
 import type { SubmitHandler } from "react-hook-form"
@@ -39,7 +38,7 @@ export default function AddPotModal({ onClose }: AddPotModalProps) {
       >
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
           <div className="flex items-center justify-between">
-            <h2 className="text-preset-1 font-bold">Add New Budget</h2>
+            <h2 className="text-preset-1 font-bold">Add New Pot</h2>
             <CircleX className="cursor-pointer" onClick={onClose} />
           </div>
 
@@ -69,12 +68,12 @@ export default function AddPotModal({ onClose }: AddPotModalProps) {
           <CustomSelectField
             label="Theme"
             options={options}
-            name="color_tag"
+            name="theme"
             control={control}
           />
 
           <button className="bg-gray-950 cursor-pointer text-white text-preset-4 font-bold py-4 rounded-md">
-            Add Budget
+            Add Pot
           </button>
         </form>
       </div>
