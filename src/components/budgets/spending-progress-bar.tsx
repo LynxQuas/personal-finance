@@ -10,6 +10,7 @@ export default function SpendingProgressBar({
   widthPercentage,
   className,
 }: SpendingProgressBarProps) {
+  console.log(widthPercentage)
   return (
     <div className={cn("h-8 w-full bg-beige-100 rounded-md", className)}>
       <div

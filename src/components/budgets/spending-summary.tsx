@@ -9,7 +9,9 @@ type SpendingSummaryProps = {
 export default function SpendingSummary({ budgetsData }: SpendingSummaryProps) {
   return (
     <div className="bg-white max-h-screen xl:sticky top-0 left-0 p-8 rounded-xl items-center-safe grid lg:grid-cols-2 md:grid-cols-2 xl:grid-cols-1">
-      <BudgetPieChart budgetData={budgetsData} />
+      <div className="w-85 mx-auto">
+        <BudgetPieChart budgetData={budgetsData} />
+      </div>
       <div className="flex flex-col gap-8">
         <h3 className="text-preset-2 font-bold">Spending Summary</h3>
 
@@ -18,8 +20,9 @@ export default function SpendingSummary({ budgetsData }: SpendingSummaryProps) {
             <SavingMicro
               key={budget.category}
               name={budget.category}
-              total={budget.maximum}
+              limit={budget.maximum}
               theme={budget.theme}
+              spent={10}
               className={`flex text-preset-4 flex-row justify-between border-l-6`}
             />
           ))}

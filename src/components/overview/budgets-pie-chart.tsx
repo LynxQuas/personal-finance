@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/chart"
 
 const chartConfig = {
-  amount: {
-    label: "Amount",
+  spent: {
+    label: "Spent",
   },
 } satisfies ChartConfig
 
@@ -22,16 +22,21 @@ type BudgetPieChartProps = {
 export function BudgetPieChart({ budgetData }: BudgetPieChartProps) {
   const chartData = budgetData.map((data) => ({
     budget: data.category,
-    amount: data.maximum,
+    spent: 10,
+    limit: data.maximum,
     fill: data.theme,
   }))
 
-  const limit = React.useMemo(() => {
-    return chartData.reduce((acc, curr) => acc + curr.amount, 0)
+  const total_limit = React.useMemo(() => {
+    return chartData.reduce((acc, curr) => acc + curr.limit, 0)
+  }, [])
+
+  const total_spent = React.useMemo(() => {
+    return chartData.reduce((acc, curr) => acc + curr.spent, 0)
   }, [])
 
   return (
-    <Card className="flex flex-col border-none shadow-none">
+    <Card className="flex flex-row border-none shadow-none">
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
@@ -45,7 +50,7 @@ export function BudgetPieChart({ budgetData }: BudgetPieChartProps) {
 
             <Pie
               data={chartData}
-              dataKey="amount"
+              dataKey="spent"
               nameKey="budget"
               innerRadius={70}
               stroke="none"
@@ -64,13 +69,15 @@ export function BudgetPieChart({ budgetData }: BudgetPieChartProps) {
                           x={viewBox.cx}
                           y={viewBox.cy}
                           className="fill-foreground text-3xl font-bold"
-                        ></tspan>
+                        >
+                          ${total_spent}
+                        </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          of {limit} limit
+                          of ${total_limit} limit
                         </tspan>
                       </text>
                     )

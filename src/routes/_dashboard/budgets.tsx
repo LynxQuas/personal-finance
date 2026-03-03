@@ -43,9 +43,8 @@ function BudgetPage() {
                 key={budget.category}
                 theme={budget.theme}
                 budgetTitle={budget.category}
-                amount={budget.maximum}
-                limit={150}
-                remaining={100}
+                remaining={budget.maximum}
+                spent={10}
               />
             ))}
           </div>

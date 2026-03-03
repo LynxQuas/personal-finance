@@ -20,10 +20,10 @@ export default function BudgetSummary({ budgets }: BudgetSummaryProps) {
         <div className="grid lg:grid-cols-1 grid-cols-2 col-span-5 lg:col-span-2 w-full gap-4">
           {budgets.map((budget) => (
             <SavingMicro
+              spent={10}
               key={budget.category}
               name={budget.category}
               theme={budget.theme}
-              total={budget.maximum}
             />
           ))}
         </div>

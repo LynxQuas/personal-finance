@@ -2,19 +2,18 @@ import { Ellipsis } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import ArrowRight from "../icons/ArrowRight"
 import SpendingProgressBar from "./spending-progress-bar"
+import { calcPercentage } from "@/lib/utils"
 
 type BudgetItemProps = {
   budgetTitle: string
-  limit: number
-  amount: number
   remaining: number
   theme: string
+  spent: number
 }
 
 export default function BudgetItem({
+  spent = 0,
   budgetTitle,
-  limit,
-  amount,
   remaining,
   theme,
 }: BudgetItemProps) {
@@ -71,15 +70,18 @@ export default function BudgetItem({
         </div>
 
         <div className="flex flex-col gap-5">
-          <h4>Maximum of ${limit}</h4>
-          <SpendingProgressBar bgColor={theme} widthPercentage="30%" />
+          <h4>Maximum of ${remaining}</h4>
+          <SpendingProgressBar
+            bgColor={theme}
+            widthPercentage={`${calcPercentage(spent, remaining)}%`}
+          />
           <div className="grid grid-cols-2">
             <div
               className="flex flex-col gap-1 border-l-4 px-5"
               style={{ borderColor: theme }}
             >
               <span className="text-preset-5">Spent</span>
-              <span className="text-preset-4 font-bold">${amount}</span>
+              <span className="text-preset-4 font-bold">${spent}</span>
             </div>
             <div className="flex flex-col gap-1 border-l-4 border-beige-100 px-5">
               <span className="text-preset-5">Remaining</span>

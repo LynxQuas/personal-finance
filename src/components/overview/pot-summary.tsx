@@ -23,13 +23,13 @@ export default function PortSummary({ pots }: PotSummaryProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-2">
           {pots.slice(0, 4).map((pot) => (
             <SavingMicro
               key={pot.name}
               name={pot.name}
               theme={pot.theme}
-              total={pot.total}
+              spent={pot.total}
             />
           ))}
         </div>
