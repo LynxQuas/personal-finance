@@ -12,3 +12,8 @@ export function formatCurrency(amount: number) {
     maximumFractionDigits: 2,
   })
 }
+
+export function calcPercentage(current: number, target: number) {
+  if (target <= 0) return 0
+  return ((current / target) * 100).toFixed(2)
+}

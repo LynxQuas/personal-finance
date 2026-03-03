@@ -1,8 +1,21 @@
 import { Ellipsis } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import SpendingProgressBar from "../budgets/spending-progress-bar"
+import { calcPercentage } from "@/lib/utils"
 
-export default function PotItem() {
+type PotItemProps = {
+  total_saved: number
+  target: number
+  theme: string
+  title: string
+}
+
+export default function PotItem({
+  title,
+  total_saved,
+  target,
+  theme,
+}: PotItemProps) {
   const [showDropdown, setShowDropdown] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -29,9 +42,9 @@ export default function PotItem() {
         <div className="flex items-center gap-4">
           <div
             className="w-4 h-4 rounded-full"
-            style={{ backgroundColor: "black" }}
+            style={{ backgroundColor: theme }}
           />
-          <span className="text-preset-2">Savings</span>
+          <span className="text-preset-2">{title}</span>
         </div>
 
         <div ref={dropdownRef} className="cursor-pointer relative">
@@ -58,28 +71,30 @@ export default function PotItem() {
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <span className="text-preset-4">Total Saved</span>
-          <span className="text-preset-1 font-bold">$159.00</span>
+          <span className="text-preset-1 font-bold">$ {total_saved}</span>
         </div>
 
         <div className="flex flex-col gap-3">
           <SpendingProgressBar
             className="w-full h-2 rounded-l-xl"
-            bgColor="var(--secondary-green)"
-            widthPercentage="40%"
+            bgColor={theme}
+            widthPercentage={`${calcPercentage(total_saved, target)}%`}
           />
 
           <div className="flex justify-between items-center">
-            <span className="text-preset-5 font-bold">7.95%</span>
-            <span className="text-preset-5">Target of $2,000</span>
+            <span className="text-preset-5 font-bold">
+              {calcPercentage(total_saved, target)}%
+            </span>
+            <span className="text-preset-5">Target of ${target}</span>
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <button className="text-preset-4 text-center py-4 bg-beige-100 rounded-md font-bold">
+        <button className="text-preset-4 text-center py-4 cursor-pointer bg-beige-100 rounded-md font-bold">
           +Add Money
         </button>
-        <button className="text-preset-4 text-center py-4 bg-beige-100 rounded-md font-bold">
+        <button className="text-preset-4 text-center py-4 bg-beige-100 cursor-pointer rounded-md font-bold">
           Withdraw
         </button>
       </div>

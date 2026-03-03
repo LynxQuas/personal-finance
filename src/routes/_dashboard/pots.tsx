@@ -25,9 +25,30 @@ function PotsPage() {
         </div>
 
         <div className="grid xl:grid-cols-2 gap-6 grid-cols-1">
-          <PotItem />
-          <PotItem />
-          <PotItem />
+          <PotItem
+            title="Mac Book"
+            total_saved={159}
+            theme="var(--secondary-green)"
+            target={2000}
+          />
+          <PotItem
+            title="Iphone"
+            total_saved={120}
+            theme="var(--secondary-cyan)"
+            target={2500}
+          />
+          <PotItem
+            title="Ipad"
+            total_saved={10}
+            theme="var(--secondary-purple)"
+            target={2400}
+          />
+          <PotItem
+            title="Nike"
+            total_saved={1000}
+            theme="var(--secondary-navy)"
+            target={1200}
+          />
         </div>
       </div>
     </>
