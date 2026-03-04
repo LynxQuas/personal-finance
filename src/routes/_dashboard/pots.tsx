@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { useState } from "react"
 import PotItem from "@/components/pots/pot-item"
 import AddPotModal from "@/components/modals/add-pot-modal"
+import DeleteModal from "@/components/modals/delete-pot"
 
 export const Route = createFileRoute("/_dashboard/pots")({
   component: PotsPage,
@@ -9,10 +10,13 @@ export const Route = createFileRoute("/_dashboard/pots")({
 
 function PotsPage() {
   const [showModal, setShowModal] = useState(false)
+  const [deletePot, setDeletePot] = useState(false)
 
   return (
     <>
       {showModal && <AddPotModal onClose={() => setShowModal(false)} />}
+      {deletePot && <DeleteModal onClose={() => setDeletePot(false)} />}
+
       <div className="bg-beige-100 min-h-screen md:px-10 md:pb-4 px-4 pt-6">
         <div className="flex items-center justify-between mb-10.5">
           <h2 className="text-preset-1 font-bold">Pots</h2>
@@ -26,6 +30,7 @@ function PotsPage() {
 
         <div className="grid xl:grid-cols-2 gap-6 grid-cols-1">
           <PotItem
+            onDelete={() => setDeletePot(true)}
             title="Mac Book"
             total_saved={159}
             theme="var(--secondary-green)"

@@ -8,6 +8,7 @@ type PotItemProps = {
   target: number
   theme: string
   title: string
+  onDelete?: () => void
 }
 
 export default function PotItem({
@@ -15,6 +16,7 @@ export default function PotItem({
   total_saved,
   target,
   theme,
+  onDelete,
 }: PotItemProps) {
   const [showDropdown, setShowDropdown] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -59,7 +61,10 @@ export default function PotItem({
                 <li className="py-3 px-5 text-preset-4 border-b border-beige-100">
                   Edit Pot
                 </li>
-                <li className="py-3 px-5 text-secondary-red text-preset-4">
+                <li
+                  onClick={onDelete}
+                  className="py-3 px-5 text-secondary-red text-preset-4"
+                >
                   Delete Pot
                 </li>
               </ul>
