@@ -14,7 +14,10 @@ export default function DeleteModal({ onClose }: DeleteModalProps) {
       >
         <div className="flex items-center justify-between w-full">
           <h2 className="text-preset-1 font-bold">Delete 'Savings'?</h2>
-          <CircleX onClick={onClose} />
+          <CircleX
+            onClick={onClose}
+            className="cursor-pointer stroke-gray-500"
+          />
         </div>
 
         <p className="text-preset-4 text-gray-500">

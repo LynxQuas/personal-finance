@@ -30,10 +30,11 @@ export default function AddPotModal({ onClose }: AddPotModalProps) {
     console.log(formData)
     onClose()
   }
+
   return (
     <ModalLayout onClose={onClose}>
       <div
-        className="bg-white lg:w-140 w-full p-8 rounded-xl"
+        className="bg-white lg:w-140 p-8 rounded-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">

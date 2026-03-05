@@ -3,6 +3,7 @@ import { useState } from "react"
 import PotItem from "@/components/pots/pot-item"
 import AddPotModal from "@/components/modals/add-pot-modal"
 import DeleteModal from "@/components/modals/delete-pot"
+import useDisableBackgroundScroll from "@/hooks/useDisableBackgroundScroll"
 
 export const Route = createFileRoute("/_dashboard/pots")({
   component: PotsPage,
@@ -11,6 +12,8 @@ export const Route = createFileRoute("/_dashboard/pots")({
 function PotsPage() {
   const [showModal, setShowModal] = useState(false)
   const [deletePot, setDeletePot] = useState(false)
+
+  useDisableBackgroundScroll(showModal)
 
   return (
     <>
