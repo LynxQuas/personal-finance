@@ -8,114 +8,114 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root"
-import { Route as SignUpRouteImport } from "./routes/sign-up"
-import { Route as LoginRouteImport } from "./routes/login"
-import { Route as DashboardRouteRouteImport } from "./routes/_dashboard/route"
-import { Route as DashboardIndexRouteImport } from "./routes/_dashboard/index"
-import { Route as DashboardTransactionsRouteImport } from "./routes/_dashboard/transactions"
-import { Route as DashboardRecurringBillsRouteImport } from "./routes/_dashboard/recurring-bills"
-import { Route as DashboardPotsRouteImport } from "./routes/_dashboard/pots"
-import { Route as DashboardBudgetsRouteImport } from "./routes/_dashboard/budgets"
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as SignUpRouteImport } from './routes/sign-up'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as DashboardRouteRouteImport } from './routes/_dashboard/route'
+import { Route as DashboardIndexRouteImport } from './routes/_dashboard/index'
+import { Route as DashboardTransactionsRouteImport } from './routes/_dashboard/transactions'
+import { Route as DashboardRecurringBillsRouteImport } from './routes/_dashboard/recurring-bills'
+import { Route as DashboardPotsRouteImport } from './routes/_dashboard/pots'
+import { Route as DashboardBudgetsRouteImport } from './routes/_dashboard/budgets'
 
 const SignUpRoute = SignUpRouteImport.update({
-  id: "/sign-up",
-  path: "/sign-up",
+  id: '/sign-up',
+  path: '/sign-up',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
-  id: "/login",
-  path: "/login",
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRouteRoute = DashboardRouteRouteImport.update({
-  id: "/_dashboard",
+  id: '/_dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
 const DashboardTransactionsRoute = DashboardTransactionsRouteImport.update({
-  id: "/transactions",
-  path: "/transactions",
+  id: '/transactions',
+  path: '/transactions',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
 const DashboardRecurringBillsRoute = DashboardRecurringBillsRouteImport.update({
-  id: "/recurring-bills",
-  path: "/recurring-bills",
+  id: '/recurring-bills',
+  path: '/recurring-bills',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
 const DashboardPotsRoute = DashboardPotsRouteImport.update({
-  id: "/pots",
-  path: "/pots",
+  id: '/pots',
+  path: '/pots',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
 const DashboardBudgetsRoute = DashboardBudgetsRouteImport.update({
-  id: "/budgets",
-  path: "/budgets",
+  id: '/budgets',
+  path: '/budgets',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  "/": typeof DashboardIndexRoute
-  "/login": typeof LoginRoute
-  "/sign-up": typeof SignUpRoute
-  "/budgets": typeof DashboardBudgetsRoute
-  "/pots": typeof DashboardPotsRoute
-  "/recurring-bills": typeof DashboardRecurringBillsRoute
-  "/transactions": typeof DashboardTransactionsRoute
+  '/': typeof DashboardIndexRoute
+  '/login': typeof LoginRoute
+  '/sign-up': typeof SignUpRoute
+  '/budgets': typeof DashboardBudgetsRoute
+  '/pots': typeof DashboardPotsRoute
+  '/recurring-bills': typeof DashboardRecurringBillsRoute
+  '/transactions': typeof DashboardTransactionsRoute
 }
 export interface FileRoutesByTo {
-  "/login": typeof LoginRoute
-  "/sign-up": typeof SignUpRoute
-  "/budgets": typeof DashboardBudgetsRoute
-  "/pots": typeof DashboardPotsRoute
-  "/recurring-bills": typeof DashboardRecurringBillsRoute
-  "/transactions": typeof DashboardTransactionsRoute
-  "/": typeof DashboardIndexRoute
+  '/login': typeof LoginRoute
+  '/sign-up': typeof SignUpRoute
+  '/budgets': typeof DashboardBudgetsRoute
+  '/pots': typeof DashboardPotsRoute
+  '/recurring-bills': typeof DashboardRecurringBillsRoute
+  '/transactions': typeof DashboardTransactionsRoute
+  '/': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  "/_dashboard": typeof DashboardRouteRouteWithChildren
-  "/login": typeof LoginRoute
-  "/sign-up": typeof SignUpRoute
-  "/_dashboard/budgets": typeof DashboardBudgetsRoute
-  "/_dashboard/pots": typeof DashboardPotsRoute
-  "/_dashboard/recurring-bills": typeof DashboardRecurringBillsRoute
-  "/_dashboard/transactions": typeof DashboardTransactionsRoute
-  "/_dashboard/": typeof DashboardIndexRoute
+  '/_dashboard': typeof DashboardRouteRouteWithChildren
+  '/login': typeof LoginRoute
+  '/sign-up': typeof SignUpRoute
+  '/_dashboard/budgets': typeof DashboardBudgetsRoute
+  '/_dashboard/pots': typeof DashboardPotsRoute
+  '/_dashboard/recurring-bills': typeof DashboardRecurringBillsRoute
+  '/_dashboard/transactions': typeof DashboardTransactionsRoute
+  '/_dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | "/"
-    | "/login"
-    | "/sign-up"
-    | "/budgets"
-    | "/pots"
-    | "/recurring-bills"
-    | "/transactions"
+    | '/'
+    | '/login'
+    | '/sign-up'
+    | '/budgets'
+    | '/pots'
+    | '/recurring-bills'
+    | '/transactions'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | "/login"
-    | "/sign-up"
-    | "/budgets"
-    | "/pots"
-    | "/recurring-bills"
-    | "/transactions"
-    | "/"
+    | '/login'
+    | '/sign-up'
+    | '/budgets'
+    | '/pots'
+    | '/recurring-bills'
+    | '/transactions'
+    | '/'
   id:
-    | "__root__"
-    | "/_dashboard"
-    | "/login"
-    | "/sign-up"
-    | "/_dashboard/budgets"
-    | "/_dashboard/pots"
-    | "/_dashboard/recurring-bills"
-    | "/_dashboard/transactions"
-    | "/_dashboard/"
+    | '__root__'
+    | '/_dashboard'
+    | '/login'
+    | '/sign-up'
+    | '/_dashboard/budgets'
+    | '/_dashboard/pots'
+    | '/_dashboard/recurring-bills'
+    | '/_dashboard/transactions'
+    | '/_dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -124,61 +124,61 @@ export interface RootRouteChildren {
   SignUpRoute: typeof SignUpRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/sign-up": {
-      id: "/sign-up"
-      path: "/sign-up"
-      fullPath: "/sign-up"
+    '/sign-up': {
+      id: '/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
       preLoaderRoute: typeof SignUpRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/login": {
-      id: "/login"
-      path: "/login"
-      fullPath: "/login"
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/_dashboard": {
-      id: "/_dashboard"
-      path: ""
-      fullPath: "/"
+    '/_dashboard': {
+      id: '/_dashboard'
+      path: ''
+      fullPath: '/'
       preLoaderRoute: typeof DashboardRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/_dashboard/": {
-      id: "/_dashboard/"
-      path: "/"
-      fullPath: "/"
+    '/_dashboard/': {
+      id: '/_dashboard/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
-    "/_dashboard/transactions": {
-      id: "/_dashboard/transactions"
-      path: "/transactions"
-      fullPath: "/transactions"
+    '/_dashboard/transactions': {
+      id: '/_dashboard/transactions'
+      path: '/transactions'
+      fullPath: '/transactions'
       preLoaderRoute: typeof DashboardTransactionsRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
-    "/_dashboard/recurring-bills": {
-      id: "/_dashboard/recurring-bills"
-      path: "/recurring-bills"
-      fullPath: "/recurring-bills"
+    '/_dashboard/recurring-bills': {
+      id: '/_dashboard/recurring-bills'
+      path: '/recurring-bills'
+      fullPath: '/recurring-bills'
       preLoaderRoute: typeof DashboardRecurringBillsRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
-    "/_dashboard/pots": {
-      id: "/_dashboard/pots"
-      path: "/pots"
-      fullPath: "/pots"
+    '/_dashboard/pots': {
+      id: '/_dashboard/pots'
+      path: '/pots'
+      fullPath: '/pots'
       preLoaderRoute: typeof DashboardPotsRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
-    "/_dashboard/budgets": {
-      id: "/_dashboard/budgets"
-      path: "/budgets"
-      fullPath: "/budgets"
+    '/_dashboard/budgets': {
+      id: '/_dashboard/budgets'
+      path: '/budgets'
+      fullPath: '/budgets'
       preLoaderRoute: typeof DashboardBudgetsRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
@@ -214,9 +214,9 @@ export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 
-import type { getRouter } from "./router.tsx"
-import type { createStart } from "@tanstack/react-start"
-declare module "@tanstack/react-start" {
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
